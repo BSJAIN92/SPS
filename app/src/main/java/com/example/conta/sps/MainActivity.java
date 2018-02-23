@@ -103,7 +103,9 @@ public class MainActivity extends Activity implements OnClickListener{
                 textRssi.setText("\n\t" + desiredResult);
                 String cellNum = String.valueOf(CellNumber.getText());
                 CellData.put(cellNum, Strength);
-                textRssi.setText("\n\t" + CellData.get("C1"));
+                textRssi.setText("\n\tCell 1: " + CellData.get("C1") +
+                        "\n\tCell 2: " + CellData.get("C2") +
+                        "\n\tCell 3: " + CellData.get("C3"));
             }
 
 

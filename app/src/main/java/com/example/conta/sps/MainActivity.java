@@ -44,6 +44,8 @@ public class MainActivity extends Activity implements OnClickListener{
 
     private Button buttonLocate;
 
+    private Button buttonWalk;
+
     private EditText CellNumber;
 
     private Map<String, Integer> Strength;
@@ -88,7 +90,7 @@ public class MainActivity extends Activity implements OnClickListener{
 
         trainedData = new HashMap<String, Map<String, List<Integer>>>();
 
-        String filename = "trainedData.csv";
+        String filename = "trainedData2.csv";
         File file = new File(getExternalFilesDir(null), filename);
         FileInputStream inputStream;
 
@@ -155,12 +157,14 @@ public class MainActivity extends Activity implements OnClickListener{
         buttonTrain = (Button) findViewById(R.id.buttonTrain);
         CellNumber = (EditText) findViewById(R.id.CellNumber);
         buttonLocate = (Button) findViewById(R.id.buttonLocate);
+        buttonWalk = (Button) findViewById(R.id.buttonWalk);
 
 
         CellDataMain = new HashMap<String, Map<String, Integer>>();
         // Set listener for the button.
         buttonTrain.setOnClickListener(this);
         buttonLocate.setOnClickListener(this);
+        buttonWalk.setOnClickListener(this);
     }
 
     // onResume() registers the accelerometer for listening the events
@@ -228,6 +232,14 @@ public class MainActivity extends Activity implements OnClickListener{
                 System.out.println("LOCATE BUTTON PRESSED");
                 Strength = new HashMap<String, Integer>();
                 CellData = new HashMap<String, Map<String, Integer>>();
+                Map<String, List<Integer>> hotspot;
+                int C1 = 0;
+                int C2 = 0;
+                int C3 = 0;
+                int T = 0;
+                float C1P = 0.0f;
+                float C2P = 0.0f;
+                float C3P = 0.0f;
 
 
 
@@ -253,6 +265,57 @@ public class MainActivity extends Activity implements OnClickListener{
                 locateData = new HashMap<String, Map<String, List<Integer>>>();
 
                 locateData = this.loadValues();
+
+                for (Map.Entry<String, Integer> entryStrength : Strength.entrySet())
+                {
+                    if (locateData.containsKey(entryStrength.getKey())){
+
+                        hotspot = new HashMap<String, List<Integer>>();
+                        hotspot = locateData.get(entryStrength.getKey());
+
+                        for (Map.Entry<String, List<Integer>> cellStrength: hotspot.entrySet()){
+                            if ((entryStrength.getValue() < cellStrength.getValue().get(0)) & entryStrength.getValue() > cellStrength.getValue().get(1)){
+                                switch (cellStrength.getKey()){
+                                    case "C1":{
+                                        C1++;
+                                        T++;
+                                        break;
+                                    }
+
+                                    case  "C2":{
+                                        C2++;
+                                        T++;
+                                        break;
+                                    }
+
+                                    case  "C3":{
+                                        C3++;
+                                        T++;
+                                        break;
+                                    }
+
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+
+                System.out.println("C1: " + C1 + "C2: " + C2 + "C3: " + C3 + "Total: " + T);
+
+
+                if ((C1 > C2) & (C1 > C3)){
+                    textRssi.setText("\n\t Cell 1 \n\t");
+                }
+                else if ((C2 > C1) & (C2 > C3)){
+                    textRssi.setText("\n\t Cell 2 \n\t");
+                }
+                else {
+                    textRssi.setText("\n\t Cell 3 \n\t");
+                }
+
+
 
 
 

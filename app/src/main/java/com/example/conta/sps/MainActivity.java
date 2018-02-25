@@ -48,20 +48,22 @@ public class MainActivity extends Activity implements OnClickListener{
     private HashMap<String, Map<String, Integer>> CellData;
 
     private void saveVectors(HashMap<String, Map<String, Integer>> data) {
-        for (Map.Entry<String, Map<String, Integer>> entry : data.entrySet())
-        {
-            System.out.println(entry.getKey() + "/" + entry.getValue());
-        }
-        String filename = "trainingdata";
+
+        String filename = "trainingData.csv";
         File file = new File(getExternalFilesDir(null), filename);
-        String fileContents = "Hello world!";
 
         FileOutputStream outputStream;
         try {
             outputStream = new FileOutputStream(file);
-            String line = ""
-            outputStream.write
-            outputStream.write(fileContents.getBytes());
+            outputStream.write("Cell, Hotspot, Strength \n".getBytes());
+            for (Map.Entry<String, Map<String, Integer>> entryCell : data.entrySet())
+            {
+                for (Map.Entry<String, Integer> entryStrength : entryCell.getValue().entrySet())
+                {
+                    String line = entryCell.getKey() + "," + entryStrength.getKey() + ", " + entryStrength.getValue() + "\n";
+                    outputStream.write(line.getBytes());
+                }
+            }
             outputStream.close();
         } catch (Exception e) {
             System.out.println("Error in File Writing");
@@ -133,6 +135,7 @@ public class MainActivity extends Activity implements OnClickListener{
                 textRssi.setText("\n\tCell 1: " + CellData.get("C1") +
                         "\n\tCell 2: " + CellData.get("C2") +
                         "\n\tCell 3: " + CellData.get("C3"));
+                this.saveVectors(CellData);
             }
 
 

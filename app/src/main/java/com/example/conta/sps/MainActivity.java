@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.io.FileOutputStream;
+import java.io.File;
 
 import android.app.Activity;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.content.Context;
+import android.os.Environment;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -44,6 +47,28 @@ public class MainActivity extends Activity implements OnClickListener{
 
     private HashMap<String, Map<String, Integer>> CellData;
 
+    private void saveVectors(HashMap<String, Map<String, Integer>> data) {
+        for (Map.Entry<String, Map<String, Integer>> entry : data.entrySet())
+        {
+            System.out.println(entry.getKey() + "/" + entry.getValue());
+        }
+        String filename = "trainingdata";
+        File file = new File(getExternalFilesDir(null), filename);
+        String fileContents = "Hello world!";
+
+        FileOutputStream outputStream;
+        try {
+            outputStream = new FileOutputStream(file);
+            String line = ""
+            outputStream.write
+            outputStream.write(fileContents.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            System.out.println("Error in File Writing");
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +78,7 @@ public class MainActivity extends Activity implements OnClickListener{
         textRssi = (TextView) findViewById(R.id.textRSSI);
         buttonTrain = (Button) findViewById(R.id.buttonTrain);
         CellNumber = (EditText) findViewById(R.id.CellNumber);
+
         Strength = new HashMap<String, Integer>();
         CellData = new HashMap<String, Map<String, Integer>>();
         // Set listener for the button.
@@ -89,6 +115,7 @@ public class MainActivity extends Activity implements OnClickListener{
                 List<ScanResult> scanResults = wifiManager.getScanResults();
                 // Write results to a label
                 List<ScanResult> desiredResult = new ArrayList<ScanResult>();
+                Strength.clear();
                 for (ScanResult scanResult : scanResults) {
                     if (scanResult.SSID.equals("eduroam")){
 

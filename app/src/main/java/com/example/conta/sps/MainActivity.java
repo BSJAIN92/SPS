@@ -260,6 +260,8 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
                     // No accelerometer!
                 }
 
+                break;
+
             }
 
             case R.id.buttonStop:{
@@ -275,7 +277,8 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
                     int s = sensorData.size();
                     for (int i = 0; i < s; i++)
                     {
-                        //String line = sensorData.get(i).getTimestamp();
+                        AccelData d = (AccelData) sensorData.get(i);
+                        String line = d.getTimestamp() + "," + d.getX() + "," + d.getY() + "," + d.getZ() + "\n";
                         outputStream.write(line.getBytes());
                     }
                     outputStream.close();
@@ -283,6 +286,8 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
                     System.out.println("Error in File Writing");
                     e.printStackTrace();
                 }
+
+                break;
 
             }
 

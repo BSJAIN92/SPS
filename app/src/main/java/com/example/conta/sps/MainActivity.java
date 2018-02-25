@@ -1,7 +1,11 @@
 package com.example.conta.sps;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.io.FileOutputStream;
@@ -12,7 +16,6 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.content.Context;
-import android.os.Environment;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -73,6 +76,75 @@ public class MainActivity extends Activity implements OnClickListener{
         }
     }
 
+    private HashMap<String, Map<String, List<Integer>>> locateData;
+
+
+    private HashMap<String, Map<String, List<Integer>>> loadValues() {
+
+        HashMap<String, Map<String, List<Integer>>> trainedData;
+        HashMap<String, List<Integer>> trainedStrength;
+        List<Integer> maxmin;
+
+
+        trainedData = new HashMap<String, Map<String, List<Integer>>>();
+
+        String filename = "trainedData.csv";
+        File file = new File(getExternalFilesDir(null), filename);
+        FileInputStream inputStream;
+
+        String hotspot;
+        String cellName;
+        int min;
+        int max;
+
+        try{
+
+            inputStream = new FileInputStream(file);
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
+            try{
+
+                String line;
+                while ((line =reader.readLine()) != null){
+                    trainedStrength  = new HashMap<String, List<Integer>>();
+                    maxmin = new LinkedList<Integer>();
+                    String[] RowData = line.split(";");
+                    hotspot = RowData[0];
+                    cellName = RowData[1];
+                    max = Integer.parseInt(RowData[2]);
+                    min = Integer.parseInt(RowData[3]);
+                    maxmin.add(max);
+                    maxmin.add(min);
+                    trainedStrength.put(cellName, maxmin);
+                    if(trainedData.containsKey(hotspot)){
+                        trainedData.get(hotspot).put(cellName, maxmin);
+                    }
+                    else {
+                        trainedData.put(hotspot, trainedStrength);
+
+                    }
+
+                }
+
+
+            }   catch (Exception e){
+                e.printStackTrace();
+            }
+
+            inputStream.close();
+
+
+        }   catch (Exception e){
+            System.out.println("Error in File Reading");
+            e.printStackTrace();
+        }
+
+
+
+        return trainedData;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,10 +154,13 @@ public class MainActivity extends Activity implements OnClickListener{
         textRssi = (TextView) findViewById(R.id.textRSSI);
         buttonTrain = (Button) findViewById(R.id.buttonTrain);
         CellNumber = (EditText) findViewById(R.id.CellNumber);
+        buttonLocate = (Button) findViewById(R.id.buttonLocate);
+
 
         CellDataMain = new HashMap<String, Map<String, Integer>>();
         // Set listener for the button.
         buttonTrain.setOnClickListener(this);
+        buttonLocate.setOnClickListener(this);
     }
 
     // onResume() registers the accelerometer for listening the events
@@ -143,11 +218,47 @@ public class MainActivity extends Activity implements OnClickListener{
                         "\n\tCell 3: " + CellDataMain.get("C3"));
 
                 this.saveVectors(CellDataMain);
+
+                break;
             }
 
 
 
             case R.id.buttonLocate: {
+                System.out.println("LOCATE BUTTON PRESSED");
+                Strength = new HashMap<String, Integer>();
+                CellData = new HashMap<String, Map<String, Integer>>();
+
+
+
+                // Set wifi manager.
+                wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+                // Start a wifi scan.
+                wifiManager.startScan();
+                // Store results in a list.
+                List<ScanResult> scanResults = wifiManager.getScanResults();
+                // Write results to a label
+                Strength.clear();
+                for (ScanResult scanResult : scanResults) {
+                    if (scanResult.SSID.equals("eduroam")){
+
+                        textRssi.setText(textRssi.getText() + "\n\tBSSID = "
+                                + scanResult.BSSID + "  SSID = "
+                                + scanResult.SSID + "  RSSI"
+                                + scanResult.level + "dBm");
+                        Strength.put(scanResult.BSSID, scanResult.level);
+                    }
+                }
+
+                locateData = new HashMap<String, Map<String, List<Integer>>>();
+
+                locateData = this.loadValues();
+
+
+
+                break;
+
+
 
             }
         }

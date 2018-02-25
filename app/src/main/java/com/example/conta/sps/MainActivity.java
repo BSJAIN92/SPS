@@ -12,7 +12,13 @@ import java.io.FileOutputStream;
 import java.io.File;
 
 import android.app.Activity;
+import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.net.wifi.ScanResult;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.content.Context;
@@ -27,12 +33,34 @@ import android.widget.TextView;
  * Created by Bhavya Jain on 20 Feb 2018.
  */
 
-public class MainActivity extends Activity implements OnClickListener{
+public class MainActivity extends Activity implements OnClickListener, SensorEventListener {
 
     /**
      * The wifi manager.
      */
     private WifiManager wifiManager;
+
+    private SensorManager sensorManager;
+
+    private Sensor accelerometer;
+
+    private WifiInfo wifiInfo;
+
+    private ArrayList sensorData;
+
+    /**
+     * Accelerometer x value
+     */
+    private double x = 0;
+    /**
+     * Accelerometer y value
+     */
+    private double y = 0;
+    /**
+     * Accelerometer z value
+     */
+    private double z = 0;
+
     /**
      * The text view.
      */
@@ -45,6 +73,10 @@ public class MainActivity extends Activity implements OnClickListener{
     private Button buttonLocate;
 
     private Button buttonWalk;
+
+    private Button buttonRecord;
+
+    private Button buttonStop;
 
     private EditText CellNumber;
 
@@ -158,6 +190,8 @@ public class MainActivity extends Activity implements OnClickListener{
         CellNumber = (EditText) findViewById(R.id.CellNumber);
         buttonLocate = (Button) findViewById(R.id.buttonLocate);
         buttonWalk = (Button) findViewById(R.id.buttonWalk);
+        buttonRecord = (Button) findViewById(R.id.buttonRecord);
+        buttonStop = (Button) findViewById(R.id.buttonStop);
 
 
         CellDataMain = new HashMap<String, Map<String, Integer>>();
@@ -165,22 +199,92 @@ public class MainActivity extends Activity implements OnClickListener{
         buttonTrain.setOnClickListener(this);
         buttonLocate.setOnClickListener(this);
         buttonWalk.setOnClickListener(this);
+        buttonRecord.setOnClickListener(this);
+        buttonStop.setOnClickListener(this);
+
+        sensorData = new ArrayList();
+
+        // Set the sensor manager
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
+
+
     }
 
     // onResume() registers the accelerometer for listening the events
     protected void onResume() {
         super.onResume();
+        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     // onPause() unregisters the accelerometer for stop listening the events
     protected void onPause() {
         super.onPause();
+        sensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        // Do nothing.
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+
+        // get the the x,y,z values of the accelerometer
+        x = event.values[0];
+        y = event.values[1];
+        z = event.values[2];
+        long timestamp = System.currentTimeMillis();
+        AccelData data = new AccelData(timestamp, x, y, z);
+        sensorData.add(data);
+
     }
 
     @Override
     public void onClick(View v) {
 
         switch (v.getId()){
+
+            case R.id.buttonRecord:{
+
+                // if the default accelerometer exists
+                if (sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null) {
+                    // set accelerometer
+                    accelerometer = sensorManager
+                            .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+                    // register 'this' as a listener that updates values. Each time a sensor value changes,
+                    // the method 'onSensorChanged()' is called.
+                    sensorManager.registerListener(this, accelerometer, sensorManager.SENSOR_DELAY_NORMAL);
+                } else {
+                    // No accelerometer!
+                }
+
+            }
+
+            case R.id.buttonStop:{
+                sensorManager.unregisterListener(this);
+
+                String filename = "accTrainingData.csv";
+                File file = new File(getExternalFilesDir(null), filename);
+
+                FileOutputStream outputStream;
+                try {
+                    outputStream = new FileOutputStream(file);
+                    outputStream.write("Timestamp, X, Y, Z \n".getBytes());
+                    int s = sensorData.size();
+                    for (int i = 0; i < s; i++)
+                    {
+                        //String line = sensorData.get(i).getTimestamp();
+                        outputStream.write(line.getBytes());
+                    }
+                    outputStream.close();
+                } catch (Exception e) {
+                    System.out.println("Error in File Writing");
+                    e.printStackTrace();
+                }
+
+            }
 
             case R.id.buttonTrain: {
                 // Set text.

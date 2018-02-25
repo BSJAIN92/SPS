@@ -47,6 +47,8 @@ public class MainActivity extends Activity implements OnClickListener{
 
     private HashMap<String, Map<String, Integer>> CellData;
 
+    private HashMap<String, Map<String, Integer>> CellDataMain;
+
     private void saveVectors(HashMap<String, Map<String, Integer>> data) {
 
         String filename = "trainingData.csv";
@@ -81,8 +83,7 @@ public class MainActivity extends Activity implements OnClickListener{
         buttonTrain = (Button) findViewById(R.id.buttonTrain);
         CellNumber = (EditText) findViewById(R.id.CellNumber);
 
-        Strength = new HashMap<String, Integer>();
-        CellData = new HashMap<String, Map<String, Integer>>();
+        CellDataMain = new HashMap<String, Map<String, Integer>>();
         // Set listener for the button.
         buttonTrain.setOnClickListener(this);
     }
@@ -108,6 +109,10 @@ public class MainActivity extends Activity implements OnClickListener{
 
                 textRssi.setText("\n\tCell Number: " + CellNumber.getText());
 
+                Strength = new HashMap<String, Integer>();
+                CellData = new HashMap<String, Map<String, Integer>>();
+
+
 
                 // Set wifi manager.
                 wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
@@ -132,10 +137,12 @@ public class MainActivity extends Activity implements OnClickListener{
                 textRssi.setText("\n\t" + desiredResult);
                 String cellNum = String.valueOf(CellNumber.getText());
                 CellData.put(cellNum, Strength);
-                textRssi.setText("\n\tCell 1: " + CellData.get("C1") +
-                        "\n\tCell 2: " + CellData.get("C2") +
-                        "\n\tCell 3: " + CellData.get("C3"));
-                this.saveVectors(CellData);
+                CellDataMain.put(cellNum, Strength);
+                textRssi.setText("\n\tCell 1: " + CellDataMain.get("C1") +
+                        "\n\tCell 2: " + CellDataMain.get("C2") +
+                        "\n\tCell 3: " + CellDataMain.get("C3"));
+
+                this.saveVectors(CellDataMain);
             }
 
 

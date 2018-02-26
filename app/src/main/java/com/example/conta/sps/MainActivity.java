@@ -267,8 +267,24 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
             case R.id.buttonStop:{
                 sensorManager.unregisterListener(this);
 
-                String filename = "accTrainingData.csv";
-                File file = new File(getExternalFilesDir(null), filename);
+                String filename = "accTrainingData";
+                String fileEx = ".csv";
+
+                File file = new File(getExternalFilesDir(null), filename + fileEx);
+
+                int check  = 0;
+                int filenum = 1;
+
+                while (check == 0){
+                    if (file.isFile()){
+                        String fileNamenew = filename + filenum + fileEx;
+                        file = new File(getExternalFilesDir(null), fileNamenew);
+                        filenum++;
+                    }
+                    else {
+                        check = 1;
+                    }
+                }
 
                 FileOutputStream outputStream;
                 try {

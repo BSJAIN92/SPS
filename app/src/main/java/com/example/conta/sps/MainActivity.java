@@ -7,9 +7,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Map;
 import java.io.FileOutputStream;
 import java.io.File;
+import java.util.TreeMap;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -46,7 +49,7 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
 
     private WifiInfo wifiInfo;
 
-    private ArrayList sensorData;
+    private ArrayList<AccelData> sensorData;
 
     /**
      * Accelerometer x value
@@ -86,6 +89,11 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
 
     private HashMap<String, Map<String, Integer>> CellDataMain;
 
+    private HashMap<String, Map<String, List<Integer>>> locateData;
+
+    private ArrayList<AccelData> trainedDataAcc;
+
+
     private void saveVectors(HashMap<String, Map<String, Integer>> data) {
 
         String filename = "trainingData.csv";
@@ -110,8 +118,72 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
         }
     }
 
-    private HashMap<String, Map<String, List<Integer>>> locateData;
 
+    private ArrayList<AccelData> loadValuesAcc() {
+        ArrayList<AccelData> tmp = new ArrayList<AccelData>();
+
+        String filename = "trainedDataAcc.csv";
+        File file = new File(getExternalFilesDir(null), filename);
+        FileInputStream inputStream;
+
+        try {
+
+            inputStream = new FileInputStream(file);
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // y, z, 0 = standing OR 1 = walking
+                String[] RowData = line.split(";");
+                Long type = Long.parseLong(RowData[2]);
+                //Double x = Double.parseDouble(RowData[0]);
+                Double y = Double.parseDouble(RowData[0]);
+                Double z = Double.parseDouble(RowData[1]);
+                tmp.add(new AccelData(type, 0, y, z));
+
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return tmp;
+    }
+
+    private String kNN(AccelData point, ArrayList<AccelData> trainedData) {
+        Map<Double, Long> distanceMap = new TreeMap<Double, Long>();
+        for(AccelData trainedPoint: trainedData) {
+            //Double dX = trainedPoint.getX() - point.getX();
+            Double dY = trainedPoint.getY() - point.getY();
+            Double dZ = trainedPoint.getZ() - point.getZ();
+            Double d = Math.sqrt(Math.pow(dY, 2) + Math.pow(dZ, 2));
+            distanceMap.put(d,trainedPoint.getTimestamp());
+        }
+
+        // get k nearest
+        int countWalking = 0;
+        int countStanding = 0;
+        int k = 0;
+        for(Map.Entry<Double, Long> kNN: distanceMap.entrySet()) {
+            if(k > 3) {
+                break;
+            } else {
+                k++;
+            }
+
+            if(kNN.getValue() == 0) {
+                countStanding++;
+            } else {
+                countWalking++;
+            }
+        }
+
+        if(countStanding > countWalking) {
+            return "STANDING";
+        } else {
+            return "WALKING";
+        }
+    }
 
     private HashMap<String, Map<String, List<Integer>>> loadValues() {
 
@@ -179,6 +251,20 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
         return trainedData;
     }
 
+    private void startRecording() {
+        // if the default accelerometer exists
+        if (sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null) {
+            // set accelerometer
+            accelerometer = sensorManager
+                    .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+            // register 'this' as a listener that updates values. Each time a sensor value changes,
+            // the method 'onSensorChanged()' is called.
+            sensorManager.registerListener(this, accelerometer, sensorManager.SENSOR_DELAY_NORMAL);
+        } else {
+            // No accelerometer!
+        }
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -202,13 +288,34 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
         buttonRecord.setOnClickListener(this);
         buttonStop.setOnClickListener(this);
 
-        sensorData = new ArrayList();
+        sensorData = new ArrayList<AccelData>();
+        trainedDataAcc = this.loadValuesAcc();
 
         // Set the sensor manager
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
 
 
+    }
+
+    private AccelData getMean(ArrayList<AccelData> data, int start, int end) {
+        Double sumX = 0.0;
+        Double sumY = 0.0;
+        Double sumZ = 0.0;
+        int count = 0;
+        for(AccelData point: data) {
+            if(count >= start && count < end) {
+                sumX += point.getX();
+                sumY += point.getY();
+                sumZ += point.getZ();
+            } else {
+                count++;
+            }
+        }
+        Double avgX = sumX/data.size();
+        Double avgY = sumY/data.size();
+        Double avgZ = sumZ/data.size();
+        return new AccelData(0, avgX,avgY, avgZ);
     }
 
     // onResume() registers the accelerometer for listening the events
@@ -247,21 +354,36 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
         switch (v.getId()){
 
             case R.id.buttonRecord:{
-
-                // if the default accelerometer exists
-                if (sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null) {
-                    // set accelerometer
-                    accelerometer = sensorManager
-                            .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-                    // register 'this' as a listener that updates values. Each time a sensor value changes,
-                    // the method 'onSensorChanged()' is called.
-                    sensorManager.registerListener(this, accelerometer, sensorManager.SENSOR_DELAY_NORMAL);
-                } else {
-                    // No accelerometer!
-                }
-
+                this.textRssi.setText(this.kNN(new AccelData(0, 0, 3,7), this.trainedDataAcc));
+                //this.startRecording();
                 break;
 
+            }
+
+            case R.id.buttonWalk: {
+                this.startRecording();
+                final ArrayList<AccelData> avgPoints = new ArrayList<AccelData>();
+                new Timer().scheduleAtFixedRate(new TimerTask(){
+                    private int counter = 0;
+                    private int pointer = 0;
+
+                    @Override
+                    public void run(){
+                        int size = sensorData.size();
+                        avgPoints.add(MainActivity.this.getMean(sensorData, pointer, size));
+                        pointer = size;
+                        if(++counter > 3) {
+                            sensorManager.unregisterListener(MainActivity.this);
+                            cancel();
+                            AccelData fin = MainActivity.this.getMean(avgPoints, 0, avgPoints.size());
+                            avgPoints.clear();
+                            textRssi.setText(fin.toString());
+                            return;
+                        }
+                    }
+                },650,650);
+
+                break;
             }
 
             case R.id.buttonStop:{
@@ -302,9 +424,9 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
                     System.out.println("Error in File Writing");
                     e.printStackTrace();
                 }
+                sensorData.clear();
 
                 break;
-
             }
 
             case R.id.buttonTrain: {
@@ -315,8 +437,6 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
 
                 Strength = new HashMap<String, Integer>();
                 CellData = new HashMap<String, Map<String, Integer>>();
-
-
 
                 // Set wifi manager.
                 wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
@@ -440,14 +560,7 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
                     textRssi.setText("\n\t Cell 3 \n\t");
                 }
 
-
-
-
-
                 break;
-
-
-
             }
         }
 

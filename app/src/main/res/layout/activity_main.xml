@@ -1,82 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:background="#ffffff"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:paddingTop="20dp" >
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="com.example.conta.sps.MainActivity" >
+
+
+    <Button
+        android:id="@+id/down"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/up"
+        android:layout_alignParentBottom="true"
+        android:text="Down" />
+
+    <Button
+        android:id="@+id/left"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/down"
+        android:layout_toLeftOf="@+id/down"
+        android:text="Left" />
+
+    <Button
+        android:id="@+id/right"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/left"
+        android:layout_alignBottom="@+id/left"
+        android:layout_toRightOf="@+id/up"
+        android:text="Right" />
+
+    <Button
+        android:id="@+id/up"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/left"
+        android:layout_centerHorizontal="true"
+        android:text="Up" />
 
     <TextView
-        android:id="@+id/titleRSSI"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="WIFI RSSI"
-        android:textSize="20dp" />
-
-    <TextView
-        android:id="@+id/textRSSI"
-        android:layout_width="300dp"
-        android:layout_height="392dp"
-        android:layout_weight="0.48"
+        android:id="@+id/feedback"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="10dp"
         android:text="" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/buttonRecord"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="RECORD" />
-
-        <Button
-            android:id="@+id/buttonStop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="STOP" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:gravity="center|top"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/CellNumber"
-            android:layout_width="3dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.33"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Cell" />
-
-        <Button
-            android:id="@+id/buttonTrain"
-            android:layout_width="19dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.33"
-            android:text="Train" />
-
-        <Button
-            android:id="@+id/buttonWalk"
-            android:layout_width="34dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.33"
-            android:text="Walk" />
-
-        <Button
-            android:id="@+id/buttonLocate"
-            android:layout_width="31dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.33"
-            android:text="Locate" />
-    </LinearLayout>
-</LinearLayout>
+    <EditText
+        android:id="@+id/CellNumber"
+        android:layout_marginLeft="138dp"
+        android:layout_marginTop="100dp"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:text="Cell No."/>
+</RelativeLayout>

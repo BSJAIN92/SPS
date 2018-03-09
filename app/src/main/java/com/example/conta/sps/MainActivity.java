@@ -15,7 +15,6 @@ import java.io.File;
 import java.util.TreeMap;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -36,7 +35,7 @@ import android.widget.TextView;
  * Created by Bhavya Jain on 20 Feb 2018.
  */
 
-public class MainActivity extends Activity implements OnClickListener, SensorEventListener {
+public class MainActivity extends Activity implements OnClickListener {
 
     /**
      * The wifi manager.
@@ -71,15 +70,15 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
     /**
      * The button.
      */
-    private Button buttonTrain;
+    private Button up;
 
-    private Button buttonLocate;
+    private Button right;
 
-    private Button buttonWalk;
+    private Button down;
 
-    private Button buttonRecord;
+    private Button left;
 
-    private Button buttonStop;
+    private TextView feedback;
 
     private EditText CellNumber;
 
@@ -93,16 +92,18 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
 
     private ArrayList<AccelData> trainedDataAcc;
 
+    private String CD;
+
 
     private void saveVectors(HashMap<String, Map<String, Integer>> data) {
 
-        String filename = "trainingData.csv";
+        String filename = "trainingData" + CD + ".csv";
         File file = new File(getExternalFilesDir(null), filename);
 
         FileOutputStream outputStream;
         try {
             outputStream = new FileOutputStream(file);
-            outputStream.write("Cell, Hotspot, Strength \n".getBytes());
+            outputStream.write("TimeStamp, Cell, Direction, BSSID, SSID, Strength \n".getBytes());
             for (Map.Entry<String, Map<String, Integer>> entryCell : data.entrySet())
             {
                 for (Map.Entry<String, Integer> entryStrength : entryCell.getValue().entrySet())
@@ -251,19 +252,7 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
         return trainedData;
     }
 
-    private void startRecording() {
-        // if the default accelerometer exists
-        if (sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null) {
-            // set accelerometer
-            accelerometer = sensorManager
-                    .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-            // register 'this' as a listener that updates values. Each time a sensor value changes,
-            // the method 'onSensorChanged()' is called.
-            sensorManager.registerListener(this, accelerometer, sensorManager.SENSOR_DELAY_NORMAL);
-        } else {
-            // No accelerometer!
-        }
-    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -271,297 +260,134 @@ public class MainActivity extends Activity implements OnClickListener, SensorEve
         setContentView(R.layout.activity_main);
 
         // Create items.
-        textRssi = (TextView) findViewById(R.id.textRSSI);
-        buttonTrain = (Button) findViewById(R.id.buttonTrain);
+        up = (Button) findViewById(R.id.up);
         CellNumber = (EditText) findViewById(R.id.CellNumber);
-        buttonLocate = (Button) findViewById(R.id.buttonLocate);
-        buttonWalk = (Button) findViewById(R.id.buttonWalk);
-        buttonRecord = (Button) findViewById(R.id.buttonRecord);
-        buttonStop = (Button) findViewById(R.id.buttonStop);
+        right = (Button) findViewById(R.id.right);
+        down = (Button) findViewById(R.id.down);
+        left = (Button) findViewById(R.id.left);
+        feedback = (TextView) findViewById(R.id.feedback);
 
 
-        CellDataMain = new HashMap<String, Map<String, Integer>>();
         // Set listener for the button.
-        buttonTrain.setOnClickListener(this);
-        buttonLocate.setOnClickListener(this);
-        buttonWalk.setOnClickListener(this);
-        buttonRecord.setOnClickListener(this);
-        buttonStop.setOnClickListener(this);
-
-        sensorData = new ArrayList<AccelData>();
-        trainedDataAcc = this.loadValuesAcc();
+        up.setOnClickListener(this);
+        right.setOnClickListener(this);
+        down.setOnClickListener(this);
+        left.setOnClickListener(this);
 
         // Set the sensor manager
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
+
 
 
 
     }
 
-    private AccelData getMean(ArrayList<AccelData> data, int start, int end) {
-        Double sumX = 0.0;
-        Double sumY = 0.0;
-        Double sumZ = 0.0;
-        int count = 0;
-        for(AccelData point: data) {
-            if(count >= start && count < end) {
-                sumX += point.getX();
-                sumY += point.getY();
-                sumZ += point.getZ();
-            } else {
-                count++;
-            }
-        }
-        Double avgX = sumX/data.size();
-        Double avgY = sumY/data.size();
-        Double avgZ = sumZ/data.size();
-        return new AccelData(0, avgX,avgY, avgZ);
-    }
 
     // onResume() registers the accelerometer for listening the events
     protected void onResume() {
         super.onResume();
-        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     // onPause() unregisters the accelerometer for stop listening the events
     protected void onPause() {
         super.onPause();
-        sensorManager.unregisterListener(this);
     }
 
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Do nothing.
+    private void collectData(final String CellDirection){
+        CellDataMain = new HashMap<String, Map<String, Integer>>();
+
+        new Timer().scheduleAtFixedRate(new TimerTask(){
+            private int counter = 0;
+            private int pointer = 0;
+
+            @Override
+            public void run(){
+
+                feedback.setText("\n\tCell Number: " + CellDirection);
+
+                Strength = new HashMap<String, Integer>();
+                CellData = new HashMap<String, Map<String, Integer>>();
+
+                // Set wifi manager.
+                wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
+                // Start a wifi scan.
+                wifiManager.startScan();
+
+                // Store results in a list.
+                List<ScanResult> scanResults = wifiManager.getScanResults();
+
+                // Write results to a label
+                List<ScanResult> desiredResult = new ArrayList<ScanResult>();
+                Strength.clear();
+
+                for (ScanResult scanResult : scanResults) {
+                    String str = scanResult.BSSID + "," + scanResult.SSID;
+                    Strength.put(str, scanResult.level);
+                }
+
+                //String cellNum = String.valueOf(CellNumber.getText());
+                //CellData.put(cellNum, Strength);
+                long time = System.currentTimeMillis();
+                String timest = time + "," + CellDirection;
+                CellDataMain.put(timest, Strength);
+
+
+                if(++counter > 9) {
+                    MainActivity.this.saveVectors(CellDataMain);
+                    cancel();
+                    feedback.setText("Recording Complete. Please move to next Direction");
+                    return;
+                }
+            }
+        },0,5000);
+
+
     }
 
-    @Override
-    public void onSensorChanged(SensorEvent event) {
 
-        // get the the x,y,z values of the accelerometer
-        x = event.values[0];
-        y = event.values[1];
-        z = event.values[2];
-        long timestamp = System.currentTimeMillis();
-        AccelData data = new AccelData(timestamp, x, y, z);
-        sensorData.add(data);
 
-    }
-
-    @Override
+        @Override
     public void onClick(View v) {
 
         switch (v.getId()){
 
-            case R.id.buttonRecord:{
-                this.textRssi.setText(this.kNN(new AccelData(0, 0, 3,7), this.trainedDataAcc));
-                //this.startRecording();
+            case R.id.up:{
+
+                CD = CellNumber.getText() + ",Up";
+                this.collectData(CD);
+
                 break;
 
             }
 
-            case R.id.buttonWalk: {
-                this.startRecording();
-                final ArrayList<AccelData> avgPoints = new ArrayList<AccelData>();
-                new Timer().scheduleAtFixedRate(new TimerTask(){
-                    private int counter = 0;
-                    private int pointer = 0;
+            case R.id.right: {
 
-                    @Override
-                    public void run(){
-                        int size = sensorData.size();
-                        avgPoints.add(MainActivity.this.getMean(sensorData, pointer, size));
-                        pointer = size;
-                        if(++counter > 3) {
-                            sensorManager.unregisterListener(MainActivity.this);
-                            cancel();
-                            AccelData fin = MainActivity.this.getMean(avgPoints, 0, avgPoints.size());
-                            avgPoints.clear();
-                            textRssi.setText(fin.toString());
-                            return;
-                        }
-                    }
-                },650,650);
+                CD = CellNumber.getText() + ",Right";
+                this.collectData(CD);
 
                 break;
             }
 
-            case R.id.buttonStop:{
-                sensorManager.unregisterListener(this);
+            case R.id.left:{
 
-                String filename = "accTrainingData";
-                String fileEx = ".csv";
-
-                File file = new File(getExternalFilesDir(null), filename + fileEx);
-
-                int check  = 0;
-                int filenum = 1;
-
-                while (check == 0){
-                    if (file.isFile()){
-                        String fileNamenew = filename + filenum + fileEx;
-                        file = new File(getExternalFilesDir(null), fileNamenew);
-                        filenum++;
-                    }
-                    else {
-                        check = 1;
-                    }
-                }
-
-                FileOutputStream outputStream;
-                try {
-                    outputStream = new FileOutputStream(file);
-                    outputStream.write("Timestamp, X, Y, Z \n".getBytes());
-                    int s = sensorData.size();
-                    for (int i = 0; i < s; i++)
-                    {
-                        AccelData d = (AccelData) sensorData.get(i);
-                        String line = d.getTimestamp() + "," + d.getX() + "," + d.getY() + "," + d.getZ() + "\n";
-                        outputStream.write(line.getBytes());
-                    }
-                    outputStream.close();
-                } catch (Exception e) {
-                    System.out.println("Error in File Writing");
-                    e.printStackTrace();
-                }
-                sensorData.clear();
+                CD = CellNumber.getText() + ",Left";
+                this.collectData(CD);
 
                 break;
             }
 
-            case R.id.buttonTrain: {
-                // Set text.
-                textRssi.setText("\n\tScan all access points:");
+            case R.id.down: {
 
-                textRssi.setText("\n\tCell Number: " + CellNumber.getText());
-
-                Strength = new HashMap<String, Integer>();
-                CellData = new HashMap<String, Map<String, Integer>>();
-
-                // Set wifi manager.
-                wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-                // Start a wifi scan.
-                wifiManager.startScan();
-                // Store results in a list.
-                List<ScanResult> scanResults = wifiManager.getScanResults();
-                // Write results to a label
-                List<ScanResult> desiredResult = new ArrayList<ScanResult>();
-                Strength.clear();
-                for (ScanResult scanResult : scanResults) {
-                    if (scanResult.SSID.equals("eduroam")){
-
-                        textRssi.setText(textRssi.getText() + "\n\tBSSID = "
-                                + scanResult.BSSID + "  SSID = "
-                                + scanResult.SSID + "  RSSI"
-                                + scanResult.level + "dBm");
-                        desiredResult.add(scanResult);
-                        Strength.put(scanResult.BSSID, scanResult.level);
-                    }
-                }
-                textRssi.setText("\n\t" + desiredResult);
-                String cellNum = String.valueOf(CellNumber.getText());
-                CellData.put(cellNum, Strength);
-                CellDataMain.put(cellNum, Strength);
-                textRssi.setText("\n\tCell 1: " + CellDataMain.get("C1") +
-                        "\n\tCell 2: " + CellDataMain.get("C2") +
-                        "\n\tCell 3: " + CellDataMain.get("C3"));
-
-                this.saveVectors(CellDataMain);
+                CD = CellNumber.getText() + ",Down";
+                this.collectData(CD);
 
                 break;
             }
 
 
 
-            case R.id.buttonLocate: {
-                System.out.println("LOCATE BUTTON PRESSED");
-                Strength = new HashMap<String, Integer>();
-                CellData = new HashMap<String, Map<String, Integer>>();
-                Map<String, List<Integer>> hotspot;
-                int C1 = 0;
-                int C2 = 0;
-                int C3 = 0;
-                int T = 0;
-                float C1P = 0.0f;
-                float C2P = 0.0f;
-                float C3P = 0.0f;
 
-
-
-                // Set wifi manager.
-                wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-                // Start a wifi scan.
-                wifiManager.startScan();
-                // Store results in a list.
-                List<ScanResult> scanResults = wifiManager.getScanResults();
-                // Write results to a label
-                Strength.clear();
-                for (ScanResult scanResult : scanResults) {
-                    if (scanResult.SSID.equals("eduroam")){
-
-                        textRssi.setText(textRssi.getText() + "\n\tBSSID = "
-                                + scanResult.BSSID + "  SSID = "
-                                + scanResult.SSID + "  RSSI"
-                                + scanResult.level + "dBm");
-                        Strength.put(scanResult.BSSID, scanResult.level);
-                    }
-                }
-
-                locateData = new HashMap<String, Map<String, List<Integer>>>();
-
-                locateData = this.loadValues();
-
-                for (Map.Entry<String, Integer> entryStrength : Strength.entrySet())
-                {
-                    if (locateData.containsKey(entryStrength.getKey())){
-
-                        hotspot = new HashMap<String, List<Integer>>();
-                        hotspot = locateData.get(entryStrength.getKey());
-
-                        for (Map.Entry<String, List<Integer>> cellStrength: hotspot.entrySet()){
-                            if ((entryStrength.getValue() < cellStrength.getValue().get(0)) & entryStrength.getValue() > cellStrength.getValue().get(1)){
-                                switch (cellStrength.getKey()){
-                                    case "C1":{
-                                        C1++;
-                                        T++;
-                                        break;
-                                    }
-
-                                    case  "C2":{
-                                        C2++;
-                                        T++;
-                                        break;
-                                    }
-
-                                    case  "C3":{
-                                        C3++;
-                                        T++;
-                                        break;
-                                    }
-
-                                }
-                            }
-                        }
-
-                    }
-
-                }
-
-                System.out.println("C1: " + C1 + "C2: " + C2 + "C3: " + C3 + "Total: " + T);
-
-
-                if ((C1 > C2) & (C1 > C3)){
-                    textRssi.setText("\n\t Cell 1 \n\t");
-                }
-                else if ((C2 > C1) & (C2 > C3)){
-                    textRssi.setText("\n\t Cell 2 \n\t");
-                }
-                else {
-                    textRssi.setText("\n\t Cell 3 \n\t");
-                }
-
-                break;
-            }
         }
 
 

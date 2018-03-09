@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/up"
         android:layout_alignParentBottom="true"
-        android:text="Down" />
+        android:text="D3" />
 
     <Button
         android:id="@+id/left"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/down"
         android:layout_toLeftOf="@+id/down"
-        android:text="Left" />
+        android:text="D4" />
 
     <Button
         android:id="@+id/right"
@@ -33,7 +33,7 @@
         android:layout_alignBaseline="@+id/left"
         android:layout_alignBottom="@+id/left"
         android:layout_toRightOf="@+id/up"
-        android:text="Right" />
+        android:text="D2" />
 
     <Button
         android:id="@+id/up"
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/left"
         android:layout_centerHorizontal="true"
-        android:text="Up" />
+        android:text="D1" />
 
     <TextView
         android:id="@+id/feedback"

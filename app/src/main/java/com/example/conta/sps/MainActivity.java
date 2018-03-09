@@ -97,7 +97,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
     private void saveVectors(HashMap<String, Map<String, Integer>> data) {
 
-        String filename = "trainingData" + CD + ".csv";
+        long filetime = System.currentTimeMillis();
+        String filename = filetime + " trainingData " + CD + ".csv";
         File file = new File(getExternalFilesDir(null), filename);
 
         FileOutputStream outputStream;
@@ -303,7 +304,7 @@ public class MainActivity extends Activity implements OnClickListener {
             @Override
             public void run(){
 
-                feedback.setText("\n\tCell Number: " + CellDirection);
+                feedback.setText("\n\tCell Number: " + CellDirection + "\n\tRecord Number " + counter);
 
                 Strength = new HashMap<String, Integer>();
                 CellData = new HashMap<String, Map<String, Integer>>();
@@ -336,7 +337,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 if(++counter > 9) {
                     MainActivity.this.saveVectors(CellDataMain);
                     cancel();
-                    feedback.setText("Recording Complete. Please move to next Direction");
+                    feedback.setText("Recording Complete. Please move to next Cell or Direction");
                     return;
                 }
             }
@@ -354,7 +355,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
             case R.id.up:{
 
-                CD = CellNumber.getText() + ",Up";
+                CD = CellNumber.getText() + ",D1";
                 this.collectData(CD);
 
                 break;
@@ -363,7 +364,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
             case R.id.right: {
 
-                CD = CellNumber.getText() + ",Right";
+                CD = CellNumber.getText() + ",D2";
                 this.collectData(CD);
 
                 break;
@@ -371,7 +372,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
             case R.id.left:{
 
-                CD = CellNumber.getText() + ",Left";
+                CD = CellNumber.getText() + ",D4";
                 this.collectData(CD);
 
                 break;
@@ -379,7 +380,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
             case R.id.down: {
 
-                CD = CellNumber.getText() + ",Down";
+                CD = CellNumber.getText() + ",D3";
                 this.collectData(CD);
 
                 break;

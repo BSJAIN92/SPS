@@ -2,6 +2,8 @@ package com.example.conta.sps;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -91,6 +93,8 @@ public class MainActivity extends Activity implements OnClickListener {
     private HashMap<String, Map<String, List<Integer>>> locateData;
 
     private ArrayList<AccelData> trainedDataAcc;
+
+    private HashMap<String, HashMap<String, List<Float>>> bayesianData;
 
     private String CD;
 
@@ -277,14 +281,88 @@ public class MainActivity extends Activity implements OnClickListener {
 
         // Set the sensor manager
 
+        // Read Bayesian trained and processed data
+        bayesianData =  readBayesianData();
+        System.out.print(bayesianData);
 
 
 
 
     }
 
+    public HashMap<String, HashMap<String, List<Float>>> readBayesianData () {
 
-    // onResume() registers the accelerometer for listening the events
+        HashMap<String, HashMap<String, List<Float>>> trainedBayesianData;
+        HashMap<String, List<Float>> musigmaCell;
+        trainedBayesianData = new HashMap<String, HashMap<String, List<Float>>>();
+        LinkedList<Float> musigma;
+
+        String filename = "distribution_cleaned.csv";
+        File file = new File(getExternalFilesDir(null), filename);
+        FileInputStream inputStream;
+
+        String BSSID;
+        String cellName;
+        float mu;
+        float sigma;
+
+        try {
+
+            inputStream = new FileInputStream(file);
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
+            try {
+
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    //trainedStrength  = new HashMap<String, List<Integer>>();
+
+                    musigmaCell = new HashMap<String, List<Float>>();
+                    musigma = new LinkedList<Float>();
+
+                    String[] RowData = line.split(",");
+                    cellName = RowData[0];
+                    BSSID = RowData[1];
+                    mu = Float.parseFloat(RowData[2]);
+                    sigma = Float.parseFloat(RowData[3]);
+
+                    musigma.add(mu);
+                    musigma.add(sigma);
+
+                    musigmaCell.put(cellName, musigma);
+
+                    if (trainedBayesianData.containsKey(BSSID)) {
+                        trainedBayesianData.get(BSSID).put(cellName, musigma);
+                    } else {
+                        trainedBayesianData.put(BSSID, musigmaCell);
+
+                    }
+
+
+                }
+
+
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            inputStream.close();
+
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return trainedBayesianData;
+    }
+
+
+        // onResume() registers the accelerometer for listening the events
     protected void onResume() {
         super.onResume();
     }

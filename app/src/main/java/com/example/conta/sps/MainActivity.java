@@ -314,7 +314,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
         finalProbability = new HashMap<String, BigDecimal>();
 
-        String filename = "distribution_cleaned.csv";
+        String filename = "distribution_cleaned_new.csv";
         File file = new File(getExternalFilesDir(null), filename);
         FileInputStream inputStream;
 

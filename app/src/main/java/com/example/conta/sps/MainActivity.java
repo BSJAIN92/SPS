@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -18,19 +20,20 @@ import java.util.TreeMap;
 
 import android.app.Activity;
 import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.content.Context;
+import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import org.apache.commons.math3.analysis.function.Gaussian;
 
 
 /**
@@ -80,6 +83,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
     private Button left;
 
+    private Button locate;
+
     private TextView feedback;
 
     private EditText CellNumber;
@@ -97,6 +102,14 @@ public class MainActivity extends Activity implements OnClickListener {
     private HashMap<String, HashMap<String, List<Float>>> bayesianData;
 
     private String CD;
+
+    private HashMap <String, BigDecimal> finalProbability;
+
+    private List<String> changeFlag;
+
+    private BigDecimal TotalCells = BigDecimal.valueOf(4);
+    private BigDecimal TotalDirections = BigDecimal.valueOf(1);
+    private BigDecimal InitialProbability = BigDecimal.valueOf(1).divide( TotalCells.multiply(TotalDirections));
 
 
     private void saveVectors(HashMap<String, Map<String, Integer>> data) {
@@ -270,6 +283,7 @@ public class MainActivity extends Activity implements OnClickListener {
         right = (Button) findViewById(R.id.right);
         down = (Button) findViewById(R.id.down);
         left = (Button) findViewById(R.id.left);
+        locate = (Button) findViewById(R.id.locate);
         feedback = (TextView) findViewById(R.id.feedback);
 
 
@@ -278,6 +292,7 @@ public class MainActivity extends Activity implements OnClickListener {
         right.setOnClickListener(this);
         down.setOnClickListener(this);
         left.setOnClickListener(this);
+        locate.setOnClickListener(this);
 
         // Set the sensor manager
 
@@ -296,6 +311,8 @@ public class MainActivity extends Activity implements OnClickListener {
         HashMap<String, List<Float>> musigmaCell;
         trainedBayesianData = new HashMap<String, HashMap<String, List<Float>>>();
         LinkedList<Float> musigma;
+
+        finalProbability = new HashMap<String, BigDecimal>();
 
         String filename = "distribution_cleaned.csv";
         File file = new File(getExternalFilesDir(null), filename);
@@ -337,6 +354,13 @@ public class MainActivity extends Activity implements OnClickListener {
                     } else {
                         trainedBayesianData.put(BSSID, musigmaCell);
 
+                    }
+
+                    if (finalProbability.containsKey(cellName)){
+                        continue;
+                    }
+                    else {
+                        finalProbability.put(cellName, InitialProbability);
                     }
 
 
@@ -424,7 +448,156 @@ public class MainActivity extends Activity implements OnClickListener {
 
     }
 
+    private void locate(){
 
+
+
+
+        // Set wifi manager.
+        wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
+        // Start a wifi scan.
+        wifiManager.startScan();
+
+        // Store results in a list.
+        List<ScanResult> scanResults = wifiManager.getScanResults();
+        changeFlag = new LinkedList<String>();
+
+        //double NormalizationChangeTotal = 0.0;
+        double NormalizationTotal = 0;
+
+        int count = 0;
+
+        for (ScanResult scanResult : scanResults) {
+            String detectedBSSID = scanResult.BSSID;
+            Integer detectedRSS = scanResult.level;
+
+            BigDecimal NormalizationChangeTotal = BigDecimal.valueOf(0.0);
+
+
+            //HashMap<String, HashMap<String, List<Float>>>
+
+            HashMap<String, List<Float>> cells = bayesianData.get(detectedBSSID);
+            if (!(cells == null || cells.size() == 1)){
+                for (Map.Entry<String, List<Float>> cell: cells.entrySet()) {
+                    String cellName = cell.getKey();
+                    List<Float> musignma = cell.getValue();
+                    Float mu = musignma.get(0);
+                    Float sigma = musignma.get(1);
+                    //Get the gaussian probability value
+                    BigDecimal probablility = BigDecimal.valueOf(this.gaussian(detectedRSS, mu, sigma));
+                    //Update existing probability by multiplication
+                    BigDecimal updatedProbability = BigDecimal.valueOf(0.0);
+                    updatedProbability = finalProbability.get(cellName).multiply(probablility);
+                    finalProbability.put(cellName, updatedProbability);
+
+                    NormalizationChangeTotal = NormalizationChangeTotal.add(updatedProbability);
+                    //NormalizationTotal += 1;
+
+
+
+                    if (!changeFlag.contains(cellName)){
+                        changeFlag.add(cellName);
+                    }
+
+
+
+                }
+                count += 1;
+
+                /*
+                if (NormalizationTotal == 0.0){
+                    NormalizationTotal = NormalizationChangeTotal;
+                }else {
+                    NormalizationTotal = NormalizationTotal*NormalizationChangeTotal;
+                }
+                */
+
+            }
+            else {
+                continue;
+            }
+
+            for (String c:changeFlag ){
+                BigDecimal prob;
+                prob = finalProbability.get(c).divide(NormalizationChangeTotal, MathContext.DECIMAL128);
+                if(prob.equals(1)) {
+                    System.out.print("test");
+                    System.out.println(finalProbability.get(c));
+                    System.out.println(NormalizationChangeTotal);
+                }
+                finalProbability.put(c, prob);
+
+
+            }
+
+            changeFlag.clear();
+
+
+
+            //Normalize
+            //Normalization of only those cells whose values changed due to observation of the BSSID
+
+
+            //Replace existing probability with updated value
+            //finalProbability.put(cellName, updatedProbability);
+
+
+        }
+        //Double p = this.gaussian(-74, -75.0, 2.1);
+
+        //double c1 = finalProbability.get("C1") * p;
+
+        /*
+        for (String c:changeFlag ){
+            Double prob = finalProbability.get(c) / NormalizationTotal;
+            finalProbability.put(c, prob);
+
+        }
+
+        changeFlag.clear();
+        */
+
+        String Winner = "No Cell";
+        BigDecimal current = new BigDecimal(0);
+
+        for (Map.Entry<String, BigDecimal> f: finalProbability.entrySet()){
+            if(f.getValue().compareTo(current) == 1) {
+                current = f.getValue();
+                Winner = f.getKey();
+            }
+        }
+
+        this.feedback.setText("Located Cell: " + Winner);
+
+        for (Map.Entry<String, BigDecimal> f: finalProbability.entrySet()){
+            finalProbability.put(f.getKey(), InitialProbability);
+        }
+
+        locate.setEnabled(false);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                locate.setEnabled(true);
+                MainActivity.this.feedback.setText("You can now try again!");
+            }
+        }, 5000);
+
+
+
+    }
+
+    private double gaussian(float observation, double mu, double sigma) {
+        double prob;
+
+        Gaussian g = new Gaussian(mu, sigma);
+
+        prob = g.value(observation);
+
+        return prob;
+    }
 
         @Override
     public void onClick(View v) {
@@ -464,7 +637,10 @@ public class MainActivity extends Activity implements OnClickListener {
                 break;
             }
 
-
+            case R.id.locate: {
+                this.locate();
+                break;
+            }
 
 
         }

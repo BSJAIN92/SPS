@@ -344,6 +344,10 @@ public class MainActivity extends Activity implements OnClickListener {
                     mu = Float.parseFloat(RowData[2]);
                     sigma = Float.parseFloat(RowData[3]);
 
+                    if (sigma > 3.0){
+                        continue;
+                    }
+
                     musigma.add(mu);
                     musigma.add(sigma);
 

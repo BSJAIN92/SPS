@@ -314,6 +314,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
         finalProbability = new HashMap<String, BigDecimal>();
 
+
+
         String filename = "distribution_cleaned_new.csv";
         File file = new File(getExternalFilesDir(null), filename);
         FileInputStream inputStream;
@@ -344,7 +346,7 @@ public class MainActivity extends Activity implements OnClickListener {
                     mu = Float.parseFloat(RowData[2]);
                     sigma = Float.parseFloat(RowData[3]);
 
-                    if (sigma > 3.0){
+                    if (sigma > 5.0){
                         continue;
                     }
 
@@ -366,6 +368,8 @@ public class MainActivity extends Activity implements OnClickListener {
                     else {
                         finalProbability.put(cellName, InitialProbability);
                     }
+
+
 
 
                 }
@@ -470,6 +474,8 @@ public class MainActivity extends Activity implements OnClickListener {
         //double NormalizationChangeTotal = 0.0;
         double NormalizationTotal = 0;
 
+        HashMap<String, Integer> Votes = new HashMap<String, Integer>();
+
         int count = 0;
 
         for (ScanResult scanResult : scanResults) {
@@ -482,7 +488,7 @@ public class MainActivity extends Activity implements OnClickListener {
             //HashMap<String, HashMap<String, List<Float>>>
 
             HashMap<String, List<Float>> cells = bayesianData.get(detectedBSSID);
-            if (!(cells == null || cells.size() == 1)){
+            if (!(cells == null /*|| cells.size() == 1*/)){
                 for (Map.Entry<String, List<Float>> cell: cells.entrySet()) {
                     String cellName = cell.getKey();
                     List<Float> musignma = cell.getValue();
@@ -525,17 +531,42 @@ public class MainActivity extends Activity implements OnClickListener {
             for (String c:changeFlag ){
                 BigDecimal prob;
                 prob = finalProbability.get(c).divide(NormalizationChangeTotal, MathContext.DECIMAL128);
+                /*
                 if(prob.equals(1)) {
                     System.out.print("test");
                     System.out.println(finalProbability.get(c));
                     System.out.println(NormalizationChangeTotal);
                 }
+                */
                 finalProbability.put(c, prob);
+
+
 
 
             }
 
             changeFlag.clear();
+
+            String Winner = "No Cell";
+            BigDecimal current = new BigDecimal(0);
+
+            for (Map.Entry<String, BigDecimal> f: finalProbability.entrySet()){
+                if(f.getValue().compareTo(current) == 1) {
+                    current = f.getValue();
+                    Winner = f.getKey();
+                }
+            }
+
+            if (Votes.containsKey(Winner)){
+                Votes.put(Winner, Votes.get(Winner)+1);
+            }
+            else {
+                Votes.put(Winner, 1);
+            }
+
+            for (Map.Entry<String, BigDecimal> f: finalProbability.entrySet()){
+                finalProbability.put(f.getKey(), InitialProbability);
+            }
 
 
 
@@ -562,6 +593,8 @@ public class MainActivity extends Activity implements OnClickListener {
         changeFlag.clear();
         */
 
+
+        /*
         String Winner = "No Cell";
         BigDecimal current = new BigDecimal(0);
 
@@ -571,8 +604,19 @@ public class MainActivity extends Activity implements OnClickListener {
                 Winner = f.getKey();
             }
         }
+        */
 
-        this.feedback.setText("Located Cell: " + Winner);
+        String FinalWinner = "No Cell";
+        Integer current = 0;
+
+        for (Map.Entry<String, Integer> f: Votes.entrySet()) {
+            if (f.getValue() > current) {
+                current = f.getValue();
+                FinalWinner = f.getKey();
+            }
+        }
+
+            this.feedback.setText("Located Cell: " + FinalWinner);
 
         for (Map.Entry<String, BigDecimal> f: finalProbability.entrySet()){
             finalProbability.put(f.getKey(), InitialProbability);

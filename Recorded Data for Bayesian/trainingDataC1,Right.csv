@@ -1,0 +1,553 @@
+TimeStamp, Cell, Direction, BSSID, SSID, Strength 
+1520594354602,C1,Right,3c:08:f6:e6:ef:2e,TUvisitor, -74
+1520594354602,C1,Right,3c:08:f6:e6:ef:2b,Event Aula, -74
+1520594354602,C1,Right,3c:08:f6:e6:ef:2a,VSV Symposium Challenge, -74
+1520594354602,C1,Right,3c:08:f6:fb:31:da,VSV Symposium Challenge, -78
+1520594354602,C1,Right,3c:08:f6:e6:f1:25,VSV Symposium Challenge, -80
+1520594354602,C1,Right,3c:08:f6:ff:a3:21,TUvisitor, -72
+1520594354602,C1,Right,3c:08:f6:ff:a3:24,Event Aula, -72
+1520594354602,C1,Right,3c:08:f6:ff:a3:2b,Event Aula, -71
+1520594354602,C1,Right,3c:08:f6:e6:ef:2f,eduroam, -74
+1520594354602,C1,Right,3c:08:f6:ff:a3:2c,TU Delft Open Dagen, -70
+1520594354602,C1,Right,3c:08:f6:fb:31:df,eduroam, -78
+1520594354602,C1,Right,3c:08:f6:e6:f1:2d,tudelft-dastud, -85
+1520594354602,C1,Right,3c:08:f6:e6:ef:20,eduroam, -69
+1520594354602,C1,Right,3c:08:f6:e6:ef:25,VSV Symposium Challenge, -71
+1520594354602,C1,Right,3c:08:f6:fb:31:d5,VSV Symposium Challenge, -74
+1520594354602,C1,Right,3c:08:f6:e6:ef:2c,TU Delft Open Dagen, -74
+1520594354602,C1,Right,3c:08:f6:e6:f1:20,eduroam, -80
+1520594354602,C1,Right,3c:08:f6:ff:a3:2e,TUvisitor, -71
+1520594354602,C1,Right,3c:08:f6:ff:a3:2f,eduroam, -70
+1520594354602,C1,Right,3c:08:f6:e6:ef:24,Event Aula, -70
+1520594354602,C1,Right,36:f6:4b:dd:1c:3d,DIRECT-NiBHAVYAJAINms4Y, -36
+1520594354602,C1,Right,3c:08:f6:fb:31:d2,tudelft-dastud, -74
+1520594354602,C1,Right,3c:08:f6:fb:31:dd,tudelft-dastud, -79
+1520594354602,C1,Right,3c:08:f6:fb:31:de,TUvisitor, -79
+1520594354602,C1,Right,3c:08:f6:e6:f1:22,tudelft-dastud, -80
+1520594354602,C1,Right,d6:6a:6a:a3:f3:f7,DIRECT-f7-HP M203 LaserJet, -79
+1520594354602,C1,Right,3c:08:f6:fb:31:d3,TU Delft Open Dagen, -75
+1520594354602,C1,Right,3c:08:f6:e6:ef:21,TUvisitor, -69
+1520594354602,C1,Right,3c:08:f6:e6:f1:2b,Event Aula, -85
+1520594354602,C1,Right,ec:8a:4c:9e:0e:f9,H368N9E0EF9, -87
+1520594354602,C1,Right,3c:08:f6:fb:31:d1,TUvisitor, -74
+1520594354602,C1,Right,3c:08:f6:fb:31:d0,eduroam, -75
+1520594354602,C1,Right,3c:08:f6:fb:31:dc,TU Delft Open Dagen, -79
+1520594354602,C1,Right,3c:08:f6:ff:a3:20,eduroam, -71
+1520594354602,C1,Right,3c:08:f6:ff:a3:22,tudelft-dastud, -72
+1520594354602,C1,Right,3c:08:f6:e6:ef:23,TU Delft Open Dagen, -69
+1520594354602,C1,Right,3c:08:f6:ff:a3:2a,VSV Symposium Challenge, -71
+1520594354602,C1,Right,3c:08:f6:e6:f1:2f,eduroam, -85
+1520594354602,C1,Right,3c:08:f6:e6:f1:2a,VSV Symposium Challenge, -87
+1520594354602,C1,Right,3c:08:f6:fb:31:d4,Event Aula, -74
+1520594354602,C1,Right,3c:08:f6:fb:31:db,Event Aula, -78
+1520594354602,C1,Right,3c:08:f6:e6:f1:23,TU Delft Open Dagen, -81
+1520594354602,C1,Right,c0:ee:fb:35:2b:ad,ruben's one plus one, -74
+1520594354602,C1,Right,3c:08:f6:ff:a3:25,VSV Symposium Challenge, -72
+1520594354602,C1,Right,3c:08:f6:fb:43:9d,tudelft-dastud, -84
+1520594354602,C1,Right,3c:08:f6:e6:f1:2e,TUvisitor, -85
+1520594354602,C1,Right,3c:08:f6:ff:a3:2d,tudelft-dastud, -70
+1520594354602,C1,Right,3c:08:f6:ff:a3:23,TU Delft Open Dagen, -72
+1520594354602,C1,Right,3c:08:f6:e6:ef:2d,tudelft-dastud, -74
+1520594354602,C1,Right,3c:08:f6:e6:f1:2c,TU Delft Open Dagen, -85
+1520594354602,C1,Right,3c:08:f6:e6:ef:22,tudelft-dastud, -70
+1520594394589,C1,Right,3c:08:f6:e6:ef:21,TUvisitor, -74
+1520594394589,C1,Right,3c:08:f6:e6:ef:2e,TUvisitor, -80
+1520594394589,C1,Right,3c:08:f6:e6:f1:2b,Event Aula, -87
+1520594394589,C1,Right,3c:08:f6:e6:ef:2b,Event Aula, -81
+1520594394589,C1,Right,3c:08:f6:fb:31:da,VSV Symposium Challenge, -75
+1520594394589,C1,Right,3c:08:f6:e6:ef:2a,VSV Symposium Challenge, -80
+1520594394589,C1,Right,3c:08:f6:fb:43:9f,eduroam, -85
+1520594394589,C1,Right,3c:08:f6:ff:a3:24,Event Aula, -75
+1520594394589,C1,Right,3c:08:f6:fb:31:dc,TU Delft Open Dagen, -75
+1520594394589,C1,Right,3c:08:f6:ff:a3:21,TUvisitor, -76
+1520594394589,C1,Right,3c:08:f6:ff:a3:22,tudelft-dastud, -75
+1520594394589,C1,Right,3c:08:f6:ff:a3:20,eduroam, -76
+1520594394589,C1,Right,3c:08:f6:ff:a3:2a,VSV Symposium Challenge, -72
+1520594394589,C1,Right,3c:08:f6:e6:ef:23,TU Delft Open Dagen, -74
+1520594394589,C1,Right,3c:08:f6:e6:f1:2f,eduroam, -85
+1520594394589,C1,Right,3c:08:f6:e6:f1:2a,VSV Symposium Challenge, -86
+1520594394589,C1,Right,3c:08:f6:fb:31:db,Event Aula, -75
+1520594394589,C1,Right,c0:ee:fb:35:2b:ad,ruben's one plus one, -76
+1520594394589,C1,Right,3c:08:f6:fb:43:9b,Event Aula, -86
+1520594394589,C1,Right,3c:08:f6:ff:a3:2b,Event Aula, -72
+1520594394589,C1,Right,3c:08:f6:ff:a3:25,VSV Symposium Challenge, -75
+1520594394589,C1,Right,3c:08:f6:fb:43:9d,tudelft-dastud, -84
+1520594394589,C1,Right,3c:08:f6:e6:ef:2f,eduroam, -80
+1520594394589,C1,Right,3c:08:f6:e6:f1:2e,TUvisitor, -85
+1520594394589,C1,Right,3c:08:f6:fb:43:9c,TU Delft Open Dagen, -85
+1520594394589,C1,Right,3c:08:f6:ff:a3:2c,TU Delft Open Dagen, -72
+1520594394589,C1,Right,3c:08:f6:ff:a3:2d,tudelft-dastud, -72
+1520594394589,C1,Right,3c:08:f6:ff:a3:23,TU Delft Open Dagen, -76
+1520594394589,C1,Right,3c:08:f6:fb:31:df,eduroam, -75
+1520594394589,C1,Right,3c:08:f6:e6:f1:2d,tudelft-dastud, -86
+1520594394589,C1,Right,3c:08:f6:e6:ef:20,eduroam, -74
+1520594394589,C1,Right,3c:08:f6:e6:ef:25,VSV Symposium Challenge, -74
+1520594394589,C1,Right,3c:08:f6:e6:ef:2c,TU Delft Open Dagen, -79
+1520594394589,C1,Right,3c:08:f6:ff:a3:2e,TUvisitor, -72
+1520594394589,C1,Right,3c:08:f6:fb:43:9a,VSV Symposium Challenge, -84
+1520594394589,C1,Right,3c:08:f6:ff:a3:2f,eduroam, -71
+1520594394589,C1,Right,3c:08:f6:e6:ef:2d,tudelft-dastud, -80
+1520594394589,C1,Right,3c:08:f6:fb:43:9e,TUvisitor, -85
+1520594394589,C1,Right,3c:08:f6:e6:ef:24,Event Aula, -85
+1520594394589,C1,Right,36:f6:4b:dd:1c:3d,DIRECT-NiBHAVYAJAINms4Y, -36
+1520594394589,C1,Right,3c:08:f6:e6:f1:2c,TU Delft Open Dagen, -86
+1520594394589,C1,Right,3c:08:f6:fb:31:dd,tudelft-dastud, -75
+1520594394589,C1,Right,3c:08:f6:fb:31:de,TUvisitor, -75
+1520594394589,C1,Right,3c:08:f6:e6:ef:22,tudelft-dastud, -74
+1520594394589,C1,Right,d6:6a:6a:a3:f3:f7,DIRECT-f7-HP M203 LaserJet, -80
+1520594369611,C1,Right,3c:08:f6:e6:ef:2e,TUvisitor, -81
+1520594369611,C1,Right,3c:08:f6:e6:ef:2b,Event Aula, -81
+1520594369611,C1,Right,3c:08:f6:fb:31:da,VSV Symposium Challenge, -76
+1520594369611,C1,Right,3c:08:f6:e6:ef:2a,VSV Symposium Challenge, -81
+1520594369611,C1,Right,3c:08:f6:fb:43:9f,eduroam, -87
+1520594369611,C1,Right,3c:08:f6:ff:a3:21,TUvisitor, -72
+1520594369611,C1,Right,3c:08:f6:ff:a3:24,Event Aula, -72
+1520594369611,C1,Right,3c:08:f6:ff:a3:2b,Event Aula, -68
+1520594369611,C1,Right,3c:08:f6:e6:ef:2f,eduroam, -81
+1520594369611,C1,Right,3c:08:f6:ff:a3:2c,TU Delft Open Dagen, -68
+1520594369611,C1,Right,3c:08:f6:fb:31:df,eduroam, -77
+1520594369611,C1,Right,3c:08:f6:e6:f1:2d,tudelft-dastud, -88
+1520594369611,C1,Right,3c:08:f6:e6:ef:20,eduroam, -72
+1520594369611,C1,Right,3c:08:f6:e6:ef:25,VSV Symposium Challenge, -72
+1520594369611,C1,Right,3c:08:f6:fb:31:d5,VSV Symposium Challenge, -77
+1520594369611,C1,Right,3c:08:f6:e6:ef:2c,TU Delft Open Dagen, -81
+1520594369611,C1,Right,3c:08:f6:ff:a3:2e,TUvisitor, -68
+1520594369611,C1,Right,3c:08:f6:fb:43:9a,VSV Symposium Challenge, -87
+1520594369611,C1,Right,3c:08:f6:ff:a3:2f,eduroam, -69
+1520594369611,C1,Right,3c:08:f6:e6:ef:24,Event Aula, -73
+1520594369611,C1,Right,36:f6:4b:dd:1c:3d,DIRECT-NiBHAVYAJAINms4Y, -40
+1520594369611,C1,Right,3c:08:f6:fb:31:dd,tudelft-dastud, -76
+1520594369611,C1,Right,3c:08:f6:fb:31:d2,tudelft-dastud, -77
+1520594369611,C1,Right,3c:08:f6:fb:31:de,TUvisitor, -77
+1520594369611,C1,Right,d6:6a:6a:a3:f3:f7,DIRECT-f7-HP M203 LaserJet, -84
+1520594369611,C1,Right,3c:08:f6:fb:31:d3,TU Delft Open Dagen, -77
+1520594369611,C1,Right,3c:08:f6:e6:ef:21,TUvisitor, -72
+1520594369611,C1,Right,3c:08:f6:e6:f1:2b,Event Aula, -88
+1520594369611,C1,Right,3c:08:f6:fb:31:d1,TUvisitor, -77
+1520594369611,C1,Right,3c:08:f6:fb:31:d0,eduroam, -77
+1520594369611,C1,Right,3c:08:f6:fb:31:dc,TU Delft Open Dagen, -77
+1520594369611,C1,Right,3c:08:f6:ff:a3:20,eduroam, -72
+1520594369611,C1,Right,3c:08:f6:ff:a3:22,tudelft-dastud, -72
+1520594369611,C1,Right,3c:08:f6:ff:a3:2a,VSV Symposium Challenge, -68
+1520594369611,C1,Right,3c:08:f6:e6:ef:23,TU Delft Open Dagen, -72
+1520594369611,C1,Right,3c:08:f6:e6:f1:2a,VSV Symposium Challenge, -87
+1520594369611,C1,Right,3c:08:f6:e6:f1:2f,eduroam, -88
+1520594369611,C1,Right,3c:08:f6:fb:31:d4,Event Aula, -76
+1520594369611,C1,Right,3c:08:f6:fb:31:db,Event Aula, -76
+1520594369611,C1,Right,c0:ee:fb:35:2b:ad,ruben's one plus one, -78
+1520594369611,C1,Right,3c:08:f6:fb:43:9b,Event Aula, -86
+1520594369611,C1,Right,3c:08:f6:ff:a3:25,VSV Symposium Challenge, -72
+1520594369611,C1,Right,3c:08:f6:fb:43:9d,tudelft-dastud, -87
+1520594369611,C1,Right,3c:08:f6:fb:43:9c,TU Delft Open Dagen, -87
+1520594369611,C1,Right,3c:08:f6:e6:f1:2e,TUvisitor, -88
+1520594369611,C1,Right,3c:08:f6:ff:a3:2d,tudelft-dastud, -68
+1520594369611,C1,Right,3c:08:f6:ff:a3:23,TU Delft Open Dagen, -72
+1520594369611,C1,Right,3c:08:f6:e6:ef:2d,tudelft-dastud, -80
+1520594369611,C1,Right,3c:08:f6:fb:43:9e,TUvisitor, -86
+1520594369611,C1,Right,3c:08:f6:e6:f1:2c,TU Delft Open Dagen, -87
+1520594369611,C1,Right,3c:08:f6:e6:ef:22,tudelft-dastud, -72
+1520594399616,C1,Right,3c:08:f6:e6:ef:2e,TUvisitor, -74
+1520594399616,C1,Right,3c:08:f6:e6:ef:2b,Event Aula, -73
+1520594399616,C1,Right,5c:50:15:d1:f1:0d,tudelft-dastud, -88
+1520594399616,C1,Right,3c:08:f6:e6:ef:2a,VSV Symposium Challenge, -74
+1520594399616,C1,Right,3c:08:f6:fb:31:da,VSV Symposium Challenge, -78
+1520594399616,C1,Right,3c:08:f6:fb:43:9f,eduroam, -84
+1520594399616,C1,Right,3c:08:f6:ff:a3:21,TUvisitor, -66
+1520594399616,C1,Right,3c:08:f6:ff:a3:24,Event Aula, -66
+1520594399616,C1,Right,3c:08:f6:ff:a3:2b,Event Aula, -68
+1520594399616,C1,Right,3c:08:f6:e6:ef:2f,eduroam, -74
+1520594399616,C1,Right,3c:08:f6:ff:a3:2c,TU Delft Open Dagen, -68
+1520594399616,C1,Right,3c:08:f6:fb:31:df,eduroam, -79
+1520594399616,C1,Right,3c:08:f6:e6:f1:2d,tudelft-dastud, -85
+1520594399616,C1,Right,3c:08:f6:e6:ef:20,eduroam, -75
+1520594399616,C1,Right,3c:08:f6:e6:ef:25,VSV Symposium Challenge, -75
+1520594399616,C1,Right,3c:08:f6:fb:31:d5,VSV Symposium Challenge, -76
+1520594399616,C1,Right,3c:08:f6:e6:ef:2c,TU Delft Open Dagen, -75
+1520594399616,C1,Right,3c:08:f6:ff:a3:2e,TUvisitor, -67
+1520594399616,C1,Right,3c:08:f6:fb:43:9a,VSV Symposium Challenge, -84
+1520594399616,C1,Right,3c:08:f6:ff:a3:2f,eduroam, -67
+1520594399616,C1,Right,3c:08:f6:e6:ef:24,Event Aula, -76
+1520594399616,C1,Right,36:f6:4b:dd:1c:3d,DIRECT-NiBHAVYAJAINms4Y, -32
+1520594399616,C1,Right,3c:08:f6:fb:31:d2,tudelft-dastud, -76
+1520594399616,C1,Right,3c:08:f6:fb:31:dd,tudelft-dastud, -79
+1520594399616,C1,Right,3c:08:f6:fb:31:de,TUvisitor, -79
+1520594399616,C1,Right,3c:08:f6:fb:31:d3,TU Delft Open Dagen, -76
+1520594399616,C1,Right,3c:08:f6:e6:ef:21,TUvisitor, -75
+1520594399616,C1,Right,3c:08:f6:e6:f1:2b,Event Aula, -86
+1520594399616,C1,Right,5c:50:15:d1:f1:0a,VSV Symposium Challenge, -88
+1520594399616,C1,Right,3c:08:f6:fb:31:d1,TUvisitor, -77
+1520594399616,C1,Right,3c:08:f6:fb:31:d0,eduroam, -76
+1520594399616,C1,Right,3c:08:f6:fb:31:dc,TU Delft Open Dagen, -79
+1520594399616,C1,Right,3c:08:f6:ff:a3:20,eduroam, -66
+1520594399616,C1,Right,3c:08:f6:ff:a3:22,tudelft-dastud, -66
+1520594399616,C1,Right,ac:22:05:24:86:33,Ziggo282A7E2, -86
+1520594399616,C1,Right,3c:08:f6:ff:a3:2a,VSV Symposium Challenge, -67
+1520594399616,C1,Right,3c:08:f6:e6:ef:23,TU Delft Open Dagen, -75
+1520594399616,C1,Right,3c:08:f6:e6:f1:2a,VSV Symposium Challenge, -86
+1520594399616,C1,Right,3c:08:f6:e6:f1:2f,eduroam, -86
+1520594399616,C1,Right,3c:08:f6:fb:31:d4,Event Aula, -76
+1520594399616,C1,Right,3c:08:f6:fb:31:db,Event Aula, -79
+1520594399616,C1,Right,3c:08:f6:fb:43:9b,Event Aula, -83
+1520594399616,C1,Right,3c:08:f6:ff:a3:25,VSV Symposium Challenge, -66
+1520594399616,C1,Right,3c:08:f6:fb:43:9d,tudelft-dastud, -83
+1520594399616,C1,Right,3c:08:f6:fb:43:9c,TU Delft Open Dagen, -83
+1520594399616,C1,Right,3c:08:f6:e6:f1:2e,TUvisitor, -85
+1520594399616,C1,Right,3c:08:f6:ff:a3:2d,tudelft-dastud, -68
+1520594399616,C1,Right,5c:50:15:d1:f1:0f,eduroam, -87
+1520594399616,C1,Right,3c:08:f6:ff:a3:23,TU Delft Open Dagen, -66
+1520594399616,C1,Right,ae:22:15:24:86:33,Ziggo, -86
+1520594399616,C1,Right,5c:50:15:d1:f1:0b,Event Aula, -88
+1520594399616,C1,Right,3c:08:f6:e6:ef:2d,tudelft-dastud, -74
+1520594399616,C1,Right,3c:08:f6:fb:43:9e,TUvisitor, -84
+1520594399616,C1,Right,3c:08:f6:e6:f1:2c,TU Delft Open Dagen, -85
+1520594399616,C1,Right,3c:08:f6:e6:ef:22,tudelft-dastud, -75
+1520594374613,C1,Right,3c:08:f6:e6:ef:2e,TUvisitor, -81
+1520594374613,C1,Right,3c:08:f6:e6:ef:2b,Event Aula, -81
+1520594374613,C1,Right,3c:08:f6:fb:31:da,VSV Symposium Challenge, -76
+1520594374613,C1,Right,3c:08:f6:e6:ef:2a,VSV Symposium Challenge, -81
+1520594374613,C1,Right,3c:08:f6:fb:43:9f,eduroam, -87
+1520594374613,C1,Right,3c:08:f6:ff:a3:21,TUvisitor, -72
+1520594374613,C1,Right,3c:08:f6:ff:a3:24,Event Aula, -72
+1520594374613,C1,Right,3c:08:f6:ff:a3:2b,Event Aula, -68
+1520594374613,C1,Right,3c:08:f6:e6:ef:2f,eduroam, -81
+1520594374613,C1,Right,3c:08:f6:ff:a3:2c,TU Delft Open Dagen, -68
+1520594374613,C1,Right,3c:08:f6:fb:31:df,eduroam, -77
+1520594374613,C1,Right,3c:08:f6:e6:f1:2d,tudelft-dastud, -88
+1520594374613,C1,Right,3c:08:f6:e6:ef:20,eduroam, -72
+1520594374613,C1,Right,3c:08:f6:e6:ef:25,VSV Symposium Challenge, -72
+1520594374613,C1,Right,3c:08:f6:fb:31:d5,VSV Symposium Challenge, -77
+1520594374613,C1,Right,3c:08:f6:e6:ef:2c,TU Delft Open Dagen, -81
+1520594374613,C1,Right,3c:08:f6:ff:a3:2e,TUvisitor, -68
+1520594374613,C1,Right,3c:08:f6:fb:43:9a,VSV Symposium Challenge, -87
+1520594374613,C1,Right,3c:08:f6:ff:a3:2f,eduroam, -69
+1520594374613,C1,Right,3c:08:f6:e6:ef:24,Event Aula, -73
+1520594374613,C1,Right,36:f6:4b:dd:1c:3d,DIRECT-NiBHAVYAJAINms4Y, -40
+1520594374613,C1,Right,3c:08:f6:fb:31:dd,tudelft-dastud, -76
+1520594374613,C1,Right,3c:08:f6:fb:31:d2,tudelft-dastud, -77
+1520594374613,C1,Right,3c:08:f6:fb:31:de,TUvisitor, -77
+1520594374613,C1,Right,d6:6a:6a:a3:f3:f7,DIRECT-f7-HP M203 LaserJet, -84
+1520594374613,C1,Right,3c:08:f6:fb:31:d3,TU Delft Open Dagen, -77
+1520594374613,C1,Right,3c:08:f6:e6:ef:21,TUvisitor, -72
+1520594374613,C1,Right,3c:08:f6:e6:f1:2b,Event Aula, -88
+1520594374613,C1,Right,3c:08:f6:fb:31:d1,TUvisitor, -77
+1520594374613,C1,Right,3c:08:f6:fb:31:d0,eduroam, -77
+1520594374613,C1,Right,3c:08:f6:fb:31:dc,TU Delft Open Dagen, -77
+1520594374613,C1,Right,3c:08:f6:ff:a3:20,eduroam, -72
+1520594374613,C1,Right,3c:08:f6:ff:a3:22,tudelft-dastud, -72
+1520594374613,C1,Right,3c:08:f6:ff:a3:2a,VSV Symposium Challenge, -68
+1520594374613,C1,Right,3c:08:f6:e6:ef:23,TU Delft Open Dagen, -72
+1520594374613,C1,Right,3c:08:f6:e6:f1:2a,VSV Symposium Challenge, -87
+1520594374613,C1,Right,3c:08:f6:e6:f1:2f,eduroam, -88
+1520594374613,C1,Right,3c:08:f6:fb:31:d4,Event Aula, -76
+1520594374613,C1,Right,3c:08:f6:fb:31:db,Event Aula, -76
+1520594374613,C1,Right,c0:ee:fb:35:2b:ad,ruben's one plus one, -78
+1520594374613,C1,Right,3c:08:f6:fb:43:9b,Event Aula, -86
+1520594374613,C1,Right,3c:08:f6:ff:a3:25,VSV Symposium Challenge, -72
+1520594374613,C1,Right,3c:08:f6:fb:43:9d,tudelft-dastud, -87
+1520594374613,C1,Right,3c:08:f6:fb:43:9c,TU Delft Open Dagen, -87
+1520594374613,C1,Right,3c:08:f6:e6:f1:2e,TUvisitor, -88
+1520594374613,C1,Right,3c:08:f6:ff:a3:2d,tudelft-dastud, -68
+1520594374613,C1,Right,3c:08:f6:ff:a3:23,TU Delft Open Dagen, -72
+1520594374613,C1,Right,3c:08:f6:e6:ef:2d,tudelft-dastud, -80
+1520594374613,C1,Right,3c:08:f6:fb:43:9e,TUvisitor, -86
+1520594374613,C1,Right,3c:08:f6:e6:f1:2c,TU Delft Open Dagen, -87
+1520594374613,C1,Right,3c:08:f6:e6:ef:22,tudelft-dastud, -72
+1520594384621,C1,Right,3c:08:f6:e6:ef:2e,TUvisitor, -68
+1520594384621,C1,Right,3c:08:f6:e6:ef:2b,Event Aula, -68
+1520594384621,C1,Right,5c:50:15:d1:f1:0d,tudelft-dastud, -86
+1520594384621,C1,Right,3c:08:f6:e6:ef:2a,VSV Symposium Challenge, -68
+1520594384621,C1,Right,3c:08:f6:fb:31:da,VSV Symposium Challenge, -74
+1520594384621,C1,Right,b8:38:61:13:9e:dc,TU Delft Open Dagen, -87
+1520594384621,C1,Right,3c:08:f6:fb:43:9f,eduroam, -79
+1520594384621,C1,Right,3c:08:f6:ff:a3:21,TUvisitor, -72
+1520594384621,C1,Right,3c:08:f6:ff:a3:24,Event Aula, -72
+1520594384621,C1,Right,3c:08:f6:ff:a3:2b,Event Aula, -69
+1520594384621,C1,Right,3c:08:f6:e6:ef:2f,eduroam, -68
+1520594384621,C1,Right,3c:08:f6:ff:a3:2c,TU Delft Open Dagen, -68
+1520594384621,C1,Right,3c:08:f6:fb:31:df,eduroam, -74
+1520594384621,C1,Right,3c:08:f6:e6:f1:2d,tudelft-dastud, -84
+1520594384621,C1,Right,3c:08:f6:e6:ef:20,eduroam, -71
+1520594384621,C1,Right,3c:08:f6:e6:ef:25,VSV Symposium Challenge, -72
+1520594384621,C1,Right,3c:08:f6:fb:31:d5,VSV Symposium Challenge, -72
+1520594384621,C1,Right,3c:08:f6:e6:ef:2c,TU Delft Open Dagen, -69
+1520594384621,C1,Right,3c:08:f6:ff:a3:2e,TUvisitor, -68
+1520594384621,C1,Right,3c:08:f6:fb:43:9a,VSV Symposium Challenge, -79
+1520594384621,C1,Right,3c:08:f6:ff:a3:2f,eduroam, -67
+1520594384621,C1,Right,3c:08:f6:e6:ef:24,Event Aula, -71
+1520594384621,C1,Right,36:f6:4b:dd:1c:3d,DIRECT-NiBHAVYAJAINms4Y, -45
+1520594384621,C1,Right,3c:08:f6:fb:31:d2,tudelft-dastud, -73
+1520594384621,C1,Right,3c:08:f6:fb:31:dd,tudelft-dastud, -75
+1520594384621,C1,Right,3c:08:f6:fb:31:de,TUvisitor, -74
+1520594384621,C1,Right,d6:6a:6a:a3:f3:f7,DIRECT-f7-HP M203 LaserJet, -79
+1520594384621,C1,Right,3c:08:f6:fb:31:d3,TU Delft Open Dagen, -72
+1520594384621,C1,Right,3c:08:f6:e6:ef:21,TUvisitor, -72
+1520594384621,C1,Right,3c:08:f6:e6:f1:2b,Event Aula, -83
+1520594384621,C1,Right,5c:50:15:d1:f1:0a,VSV Symposium Challenge, -85
+1520594384621,C1,Right,3c:08:f6:fb:31:d1,TUvisitor, -73
+1520594384621,C1,Right,3c:08:f6:fb:31:d0,eduroam, -72
+1520594384621,C1,Right,3c:08:f6:fb:31:dc,TU Delft Open Dagen, -74
+1520594384621,C1,Right,3c:08:f6:ff:a3:20,eduroam, -72
+1520594384621,C1,Right,3c:08:f6:ff:a3:22,tudelft-dastud, -72
+1520594384621,C1,Right,3c:08:f6:ff:a3:2a,VSV Symposium Challenge, -69
+1520594384621,C1,Right,3c:08:f6:e6:ef:23,TU Delft Open Dagen, -72
+1520594384621,C1,Right,3c:08:f6:e6:f1:2a,VSV Symposium Challenge, -84
+1520594384621,C1,Right,3c:08:f6:e6:f1:2f,eduroam, -86
+1520594384621,C1,Right,3c:08:f6:fb:31:d4,Event Aula, -72
+1520594384621,C1,Right,3c:08:f6:fb:31:db,Event Aula, -75
+1520594384621,C1,Right,c0:ee:fb:35:2b:ad,ruben's one plus one, -71
+1520594384621,C1,Right,3c:08:f6:fb:43:9b,Event Aula, -79
+1520594384621,C1,Right,3c:08:f6:ff:a3:25,VSV Symposium Challenge, -72
+1520594384621,C1,Right,3c:08:f6:fb:43:9d,tudelft-dastud, -79
+1520594384621,C1,Right,3c:08:f6:fb:43:9c,TU Delft Open Dagen, -80
+1520594384621,C1,Right,3c:08:f6:e6:f1:2e,TUvisitor, -84
+1520594384621,C1,Right,3c:08:f6:ff:a3:2d,tudelft-dastud, -69
+1520594384621,C1,Right,3c:08:f6:ff:a3:23,TU Delft Open Dagen, -73
+1520594384621,C1,Right,5c:50:15:d1:f1:0c,TU Delft Open Dagen, -86
+1520594384621,C1,Right,5a:8a:4c:9e:0e:fa,KPN Fon, -85
+1520594384621,C1,Right,5c:50:15:d1:f1:0b,Event Aula, -87
+1520594384621,C1,Right,3c:08:f6:e6:ef:2d,tudelft-dastud, -68
+1520594384621,C1,Right,3c:08:f6:fb:43:9e,TUvisitor, -78
+1520594384621,C1,Right,3c:08:f6:e6:f1:2c,TU Delft Open Dagen, -83
+1520594384621,C1,Right,5c:50:15:d1:f1:0e,TUvisitor, -85
+1520594384621,C1,Right,3c:08:f6:e6:ef:22,tudelft-dastud, -71
+1520594359617,C1,Right,3c:08:f6:e6:ef:21,TUvisitor, -72
+1520594359617,C1,Right,3c:08:f6:e6:ef:2e,TUvisitor, -73
+1520594359617,C1,Right,3c:08:f6:e6:f1:2b,Event Aula, -86
+1520594359617,C1,Right,3c:08:f6:e6:ef:2b,Event Aula, -73
+1520594359617,C1,Right,5c:50:15:d1:f1:0d,tudelft-dastud, -88
+1520594359617,C1,Right,3c:08:f6:e6:ef:2a,VSV Symposium Challenge, -73
+1520594359617,C1,Right,5c:50:15:d1:f1:0a,VSV Symposium Challenge, -89
+1520594359617,C1,Right,3c:08:f6:fb:31:d1,TUvisitor, -73
+1520594359617,C1,Right,3c:08:f6:fb:31:d0,eduroam, -74
+1520594359617,C1,Right,3c:08:f6:ff:a3:21,TUvisitor, -70
+1520594359617,C1,Right,3c:08:f6:ff:a3:24,Event Aula, -71
+1520594359617,C1,Right,3c:08:f6:ff:a3:22,tudelft-dastud, -70
+1520594359617,C1,Right,3c:08:f6:ff:a3:20,eduroam, -71
+1520594359617,C1,Right,3c:08:f6:ff:a3:2a,VSV Symposium Challenge, -70
+1520594359617,C1,Right,3c:08:f6:e6:ef:23,TU Delft Open Dagen, -73
+1520594359617,C1,Right,3c:08:f6:e6:f1:2f,eduroam, -85
+1520594359617,C1,Right,3c:08:f6:e6:f1:2a,VSV Symposium Challenge, -86
+1520594359617,C1,Right,3c:08:f6:fb:31:d4,Event Aula, -73
+1520594359617,C1,Right,c0:ee:fb:35:2b:ad,ruben's one plus one, -75
+1520594359617,C1,Right,3c:08:f6:ff:a3:25,VSV Symposium Challenge, -70
+1520594359617,C1,Right,3c:08:f6:ff:a3:2b,Event Aula, -70
+1520594359617,C1,Right,3c:08:f6:e6:ef:2f,eduroam, -73
+1520594359617,C1,Right,3c:08:f6:e6:f1:2e,TUvisitor, -86
+1520594359617,C1,Right,3c:08:f6:ff:a3:2c,TU Delft Open Dagen, -70
+1520594359617,C1,Right,3c:08:f6:ff:a3:2d,tudelft-dastud, -70
+1520594359617,C1,Right,3c:08:f6:ff:a3:23,TU Delft Open Dagen, -70
+1520594359617,C1,Right,5c:50:15:d1:f1:0c,TU Delft Open Dagen, -88
+1520594359617,C1,Right,3c:08:f6:e6:f1:2d,tudelft-dastud, -85
+1520594359617,C1,Right,3c:08:f6:e6:ef:20,eduroam, -73
+1520594359617,C1,Right,3c:08:f6:e6:ef:25,VSV Symposium Challenge, -73
+1520594359617,C1,Right,3c:08:f6:fb:31:d5,VSV Symposium Challenge, -73
+1520594359617,C1,Right,3c:08:f6:e6:ef:2c,TU Delft Open Dagen, -73
+1520594359617,C1,Right,3c:08:f6:ff:a3:2e,TUvisitor, -70
+1520594359617,C1,Right,5c:50:15:d1:f1:0b,Event Aula, -88
+1520594359617,C1,Right,b8:38:61:0e:c6:7d,tudelft-dastud, -88
+1520594359617,C1,Right,3c:08:f6:ff:a3:2f,eduroam, -69
+1520594359617,C1,Right,3c:08:f6:e6:ef:2d,tudelft-dastud, -73
+1520594359617,C1,Right,3c:08:f6:fb:43:9e,TUvisitor, -83
+1520594359617,C1,Right,3c:08:f6:e6:ef:24,Event Aula, -73
+1520594359617,C1,Right,36:f6:4b:dd:1c:3d,DIRECT-NiBHAVYAJAINms4Y, -34
+1520594359617,C1,Right,3c:08:f6:e6:f1:2c,TU Delft Open Dagen, -86
+1520594359617,C1,Right,3c:08:f6:fb:31:d2,tudelft-dastud, -73
+1520594359617,C1,Right,5c:50:15:d1:f1:0e,TUvisitor, -89
+1520594359617,C1,Right,3c:08:f6:e6:ef:22,tudelft-dastud, -72
+1520594359617,C1,Right,d6:6a:6a:a3:f3:f7,DIRECT-f7-HP M203 LaserJet, -85
+1520594359617,C1,Right,3c:08:f6:fb:31:d3,TU Delft Open Dagen, -72
+1520594359617,C1,Right,b8:38:61:0e:c6:7f,eduroam, -88
+1520594364612,C1,Right,3c:08:f6:e6:ef:2e,TUvisitor, -73
+1520594364612,C1,Right,3c:08:f6:e6:f1:2b,Event Aula, -87
+1520594364612,C1,Right,3c:08:f6:e6:ef:2b,Event Aula, -74
+1520594364612,C1,Right,3c:08:f6:e6:ef:2a,VSV Symposium Challenge, -73
+1520594364612,C1,Right,3c:08:f6:fb:31:da,VSV Symposium Challenge, -80
+1520594364612,C1,Right,3c:08:f6:fb:31:d1,TUvisitor, -80
+1520594364612,C1,Right,3c:08:f6:fb:31:d0,eduroam, -73
+1520594364612,C1,Right,3c:08:f6:fb:43:9f,eduroam, -83
+1520594364612,C1,Right,3c:08:f6:fb:31:dc,TU Delft Open Dagen, -80
+1520594364612,C1,Right,3c:08:f6:ff:a3:2a,VSV Symposium Challenge, -72
+1520594364612,C1,Right,3c:08:f6:e6:f1:2a,VSV Symposium Challenge, -86
+1520594364612,C1,Right,3c:08:f6:e6:f1:2f,eduroam, -86
+1520594364612,C1,Right,3c:08:f6:fb:31:d4,Event Aula, -78
+1520594364612,C1,Right,3c:08:f6:fb:31:db,Event Aula, -80
+1520594364612,C1,Right,3c:08:f6:fb:43:9b,Event Aula, -84
+1520594364612,C1,Right,3c:08:f6:ff:a3:2b,Event Aula, -71
+1520594364612,C1,Right,3c:08:f6:fb:43:9d,tudelft-dastud, -83
+1520594364612,C1,Right,3c:08:f6:e6:ef:2f,eduroam, -73
+1520594364612,C1,Right,3c:08:f6:fb:43:9c,TU Delft Open Dagen, -83
+1520594364612,C1,Right,3c:08:f6:e6:f1:2e,TUvisitor, -85
+1520594364612,C1,Right,3c:08:f6:ff:a3:2c,TU Delft Open Dagen, -71
+1520594364612,C1,Right,3c:08:f6:ff:a3:2d,tudelft-dastud, -71
+1520594364612,C1,Right,3c:08:f6:fb:31:df,eduroam, -81
+1520594364612,C1,Right,3c:08:f6:e6:f1:2d,tudelft-dastud, -86
+1520594364612,C1,Right,3c:08:f6:fb:31:d5,VSV Symposium Challenge, -73
+1520594364612,C1,Right,3c:08:f6:e6:ef:2c,TU Delft Open Dagen, -73
+1520594364612,C1,Right,3c:08:f6:ff:a3:2e,TUvisitor, -71
+1520594364612,C1,Right,3c:08:f6:fb:43:9a,VSV Symposium Challenge, -82
+1520594364612,C1,Right,3c:08:f6:ff:a3:2f,eduroam, -68
+1520594364612,C1,Right,3c:08:f6:e6:ef:2d,tudelft-dastud, -74
+1520594364612,C1,Right,3c:08:f6:fb:43:9e,TUvisitor, -83
+1520594364612,C1,Right,36:f6:4b:dd:1c:3d,DIRECT-NiBHAVYAJAINms4Y, -52
+1520594364612,C1,Right,3c:08:f6:e6:f1:2c,TU Delft Open Dagen, -87
+1520594364612,C1,Right,3c:08:f6:fb:31:d2,tudelft-dastud, -78
+1520594364612,C1,Right,3c:08:f6:fb:31:dd,tudelft-dastud, -80
+1520594364612,C1,Right,3c:08:f6:fb:31:de,TUvisitor, -81
+1520594364612,C1,Right,3c:08:f6:fb:31:d3,TU Delft Open Dagen, -74
+1520594379625,C1,Right,3c:08:f6:e6:ef:2e,TUvisitor, -74
+1520594379625,C1,Right,3c:08:f6:e6:ef:2b,Event Aula, -74
+1520594379625,C1,Right,5c:50:15:d1:f1:0d,tudelft-dastud, -88
+1520594379625,C1,Right,3c:08:f6:e6:ef:2a,VSV Symposium Challenge, -73
+1520594379625,C1,Right,3c:08:f6:fb:31:da,VSV Symposium Challenge, -75
+1520594379625,C1,Right,3c:08:f6:fb:43:9f,eduroam, -83
+1520594379625,C1,Right,3c:08:f6:ff:a3:21,TUvisitor, -67
+1520594379625,C1,Right,3c:08:f6:ff:a3:24,Event Aula, -67
+1520594379625,C1,Right,3c:08:f6:ff:a3:2b,Event Aula, -65
+1520594379625,C1,Right,3c:08:f6:e6:ef:2f,eduroam, -72
+1520594379625,C1,Right,3c:08:f6:ff:a3:2c,TU Delft Open Dagen, -65
+1520594379625,C1,Right,3c:08:f6:fb:31:df,eduroam, -75
+1520594379625,C1,Right,3c:08:f6:e6:f1:2d,tudelft-dastud, -82
+1520594379625,C1,Right,3c:08:f6:e6:ef:20,eduroam, -75
+1520594379625,C1,Right,3c:08:f6:fb:31:d5,VSV Symposium Challenge, -69
+1520594379625,C1,Right,3c:08:f6:e6:ef:25,VSV Symposium Challenge, -75
+1520594379625,C1,Right,3c:08:f6:e6:ef:2c,TU Delft Open Dagen, -74
+1520594379625,C1,Right,3c:08:f6:ff:a3:2e,TUvisitor, -65
+1520594379625,C1,Right,3c:08:f6:fb:43:9a,VSV Symposium Challenge, -83
+1520594379625,C1,Right,3c:08:f6:ff:a3:2f,eduroam, -66
+1520594379625,C1,Right,b8:38:61:0e:c7:1e,TUvisitor, -86
+1520594379625,C1,Right,b8:38:61:13:9b:bb,Event Aula, -91
+1520594379625,C1,Right,3c:08:f6:e6:ef:24,Event Aula, -75
+1520594379625,C1,Right,36:f6:4b:dd:1c:3d,DIRECT-NiBHAVYAJAINms4Y, -33
+1520594379625,C1,Right,3c:08:f6:fb:31:d2,tudelft-dastud, -70
+1520594379625,C1,Right,3c:08:f6:fb:31:dd,tudelft-dastud, -75
+1520594379625,C1,Right,3c:08:f6:fb:31:de,TUvisitor, -75
+1520594379625,C1,Right,b8:38:61:13:9b:bd,tudelft-dastud, -88
+1520594379625,C1,Right,d6:6a:6a:a3:f3:f7,DIRECT-f7-HP M203 LaserJet, -82
+1520594379625,C1,Right,3c:08:f6:fb:31:d3,TU Delft Open Dagen, -69
+1520594379625,C1,Right,3c:08:f6:e6:ef:21,TUvisitor, -75
+1520594379625,C1,Right,3c:08:f6:e6:f1:2b,Event Aula, -83
+1520594379625,C1,Right,5c:50:15:d1:f1:0a,VSV Symposium Challenge, -87
+1520594379625,C1,Right,3c:08:f6:fb:31:d1,TUvisitor, -69
+1520594379625,C1,Right,3c:08:f6:fb:31:d0,eduroam, -69
+1520594379625,C1,Right,3c:08:f6:f5:45:2b,Event Aula, -89
+1520594379625,C1,Right,3c:08:f6:fb:31:dc,TU Delft Open Dagen, -75
+1520594379625,C1,Right,3c:08:f6:ff:a3:22,tudelft-dastud, -67
+1520594379625,C1,Right,3c:08:f6:ff:a3:20,eduroam, -68
+1520594379625,C1,Right,ac:22:05:24:86:33,Ziggo282A7E2, -86
+1520594379625,C1,Right,3c:08:f6:ff:a3:2a,VSV Symposium Challenge, -66
+1520594379625,C1,Right,3c:08:f6:e6:ef:23,TU Delft Open Dagen, -75
+1520594379625,C1,Right,3c:08:f6:e6:f1:2f,eduroam, -82
+1520594379625,C1,Right,3c:08:f6:e6:f1:2a,VSV Symposium Challenge, -83
+1520594379625,C1,Right,3c:08:f6:fb:31:d4,Event Aula, -69
+1520594379625,C1,Right,3c:08:f6:fb:31:db,Event Aula, -75
+1520594379625,C1,Right,b8:38:61:13:9b:bf,eduroam, -89
+1520594379625,C1,Right,c0:ee:fb:35:2b:ad,ruben's one plus one, -68
+1520594379625,C1,Right,3c:08:f6:fb:43:9b,Event Aula, -84
+1520594379625,C1,Right,3c:08:f6:ff:a3:25,VSV Symposium Challenge, -67
+1520594379625,C1,Right,3c:08:f6:fb:43:9d,tudelft-dastud, -84
+1520594379625,C1,Right,3c:08:f6:e6:f1:2e,TUvisitor, -82
+1520594379625,C1,Right,3c:08:f6:fb:43:9c,TU Delft Open Dagen, -83
+1520594379625,C1,Right,3c:08:f6:ff:a3:2d,tudelft-dastud, -66
+1520594379625,C1,Right,3c:08:f6:ff:a3:23,TU Delft Open Dagen, -67
+1520594379625,C1,Right,5c:50:15:d1:f1:0c,TU Delft Open Dagen, -86
+1520594379625,C1,Right,ae:22:15:24:86:33,Ziggo, -87
+1520594379625,C1,Right,b8:38:61:13:9b:be,TUvisitor, -89
+1520594379625,C1,Right,b8:38:61:13:9b:bc,TU Delft Open Dagen, -89
+1520594379625,C1,Right,3c:08:f6:e6:ef:2d,tudelft-dastud, -74
+1520594379625,C1,Right,3c:08:f6:fb:43:9e,TUvisitor, -83
+1520594379625,C1,Right,3c:08:f6:e6:f1:2c,TU Delft Open Dagen, -83
+1520594379625,C1,Right,b8:38:61:13:9b:ba,VSV Symposium Challenge, -90
+1520594379625,C1,Right,5c:50:15:d1:f1:0e,TUvisitor, -87
+1520594379625,C1,Right,3c:08:f6:e6:ef:22,tudelft-dastud, -75
+1520594389618,C1,Right,3c:08:f6:e6:ef:21,TUvisitor, -74
+1520594389618,C1,Right,3c:08:f6:e6:ef:2e,TUvisitor, -80
+1520594389618,C1,Right,3c:08:f6:e6:f1:2b,Event Aula, -87
+1520594389618,C1,Right,3c:08:f6:e6:ef:2b,Event Aula, -81
+1520594389618,C1,Right,3c:08:f6:fb:31:da,VSV Symposium Challenge, -75
+1520594389618,C1,Right,3c:08:f6:e6:ef:2a,VSV Symposium Challenge, -80
+1520594389618,C1,Right,3c:08:f6:fb:43:9f,eduroam, -85
+1520594389618,C1,Right,3c:08:f6:ff:a3:24,Event Aula, -75
+1520594389618,C1,Right,3c:08:f6:fb:31:dc,TU Delft Open Dagen, -75
+1520594389618,C1,Right,3c:08:f6:ff:a3:21,TUvisitor, -76
+1520594389618,C1,Right,3c:08:f6:ff:a3:22,tudelft-dastud, -75
+1520594389618,C1,Right,3c:08:f6:ff:a3:20,eduroam, -76
+1520594389618,C1,Right,3c:08:f6:ff:a3:2a,VSV Symposium Challenge, -72
+1520594389618,C1,Right,3c:08:f6:e6:ef:23,TU Delft Open Dagen, -74
+1520594389618,C1,Right,3c:08:f6:e6:f1:2f,eduroam, -85
+1520594389618,C1,Right,3c:08:f6:e6:f1:2a,VSV Symposium Challenge, -86
+1520594389618,C1,Right,3c:08:f6:fb:31:db,Event Aula, -75
+1520594389618,C1,Right,c0:ee:fb:35:2b:ad,ruben's one plus one, -76
+1520594389618,C1,Right,3c:08:f6:fb:43:9b,Event Aula, -86
+1520594389618,C1,Right,3c:08:f6:ff:a3:2b,Event Aula, -72
+1520594389618,C1,Right,3c:08:f6:ff:a3:25,VSV Symposium Challenge, -75
+1520594389618,C1,Right,3c:08:f6:fb:43:9d,tudelft-dastud, -84
+1520594389618,C1,Right,3c:08:f6:e6:ef:2f,eduroam, -80
+1520594389618,C1,Right,3c:08:f6:e6:f1:2e,TUvisitor, -85
+1520594389618,C1,Right,3c:08:f6:fb:43:9c,TU Delft Open Dagen, -85
+1520594389618,C1,Right,3c:08:f6:ff:a3:2c,TU Delft Open Dagen, -72
+1520594389618,C1,Right,3c:08:f6:ff:a3:2d,tudelft-dastud, -72
+1520594389618,C1,Right,3c:08:f6:ff:a3:23,TU Delft Open Dagen, -76
+1520594389618,C1,Right,3c:08:f6:fb:31:df,eduroam, -75
+1520594389618,C1,Right,3c:08:f6:e6:f1:2d,tudelft-dastud, -86
+1520594389618,C1,Right,3c:08:f6:e6:ef:20,eduroam, -74
+1520594389618,C1,Right,3c:08:f6:e6:ef:25,VSV Symposium Challenge, -74
+1520594389618,C1,Right,3c:08:f6:e6:ef:2c,TU Delft Open Dagen, -79
+1520594389618,C1,Right,3c:08:f6:ff:a3:2e,TUvisitor, -72
+1520594389618,C1,Right,3c:08:f6:fb:43:9a,VSV Symposium Challenge, -84
+1520594389618,C1,Right,3c:08:f6:ff:a3:2f,eduroam, -71
+1520594389618,C1,Right,3c:08:f6:e6:ef:2d,tudelft-dastud, -80
+1520594389618,C1,Right,3c:08:f6:fb:43:9e,TUvisitor, -85
+1520594389618,C1,Right,3c:08:f6:e6:ef:24,Event Aula, -85
+1520594389618,C1,Right,36:f6:4b:dd:1c:3d,DIRECT-NiBHAVYAJAINms4Y, -36
+1520594389618,C1,Right,3c:08:f6:e6:f1:2c,TU Delft Open Dagen, -86
+1520594389618,C1,Right,3c:08:f6:fb:31:dd,tudelft-dastud, -75
+1520594389618,C1,Right,3c:08:f6:fb:31:de,TUvisitor, -75
+1520594389618,C1,Right,3c:08:f6:e6:ef:22,tudelft-dastud, -74
+1520594389618,C1,Right,d6:6a:6a:a3:f3:f7,DIRECT-f7-HP M203 LaserJet, -80
+1520594404612,C1,Right,3c:08:f6:e6:ef:21,TUvisitor, -70
+1520594404612,C1,Right,3c:08:f6:e6:ef:2e,TUvisitor, -73
+1520594404612,C1,Right,3c:08:f6:e6:ef:2b,Event Aula, -73
+1520594404612,C1,Right,5c:50:15:d1:f1:0d,tudelft-dastud, -87
+1520594404612,C1,Right,3c:08:f6:e6:ef:2a,VSV Symposium Challenge, -73
+1520594404612,C1,Right,3c:08:f6:fb:31:da,VSV Symposium Challenge, -77
+1520594404612,C1,Right,5c:50:15:d1:f1:0a,VSV Symposium Challenge, -89
+1520594404612,C1,Right,3c:08:f6:fb:31:d1,TUvisitor, -73
+1520594404612,C1,Right,3c:08:f6:ff:a3:21,TUvisitor, -72
+1520594404612,C1,Right,3c:08:f6:ff:a3:24,Event Aula, -73
+1520594404612,C1,Right,3c:08:f6:fb:31:dc,TU Delft Open Dagen, -77
+1520594404612,C1,Right,3c:08:f6:ff:a3:20,eduroam, -73
+1520594404612,C1,Right,3c:08:f6:ff:a3:22,tudelft-dastud, -73
+1520594404612,C1,Right,3c:08:f6:e6:ef:23,TU Delft Open Dagen, -70
+1520594404612,C1,Right,3c:08:f6:ff:a3:2a,VSV Symposium Challenge, -72
+1520594404612,C1,Right,3c:08:f6:e6:f1:2f,eduroam, -87
+1520594404612,C1,Right,3c:08:f6:e6:f1:2a,VSV Symposium Challenge, -88
+1520594404612,C1,Right,3c:08:f6:fb:31:d4,Event Aula, -72
+1520594404612,C1,Right,3c:08:f6:fb:31:db,Event Aula, -77
+1520594404612,C1,Right,c0:ee:fb:35:2b:ad,ruben's one plus one, -75
+1520594404612,C1,Right,3c:08:f6:ff:a3:2b,Event Aula, -72
+1520594404612,C1,Right,3c:08:f6:ff:a3:25,VSV Symposium Challenge, -73
+1520594404612,C1,Right,3c:08:f6:e6:ef:2f,eduroam, -72
+1520594404612,C1,Right,3c:08:f6:e6:f1:2e,TUvisitor, -87
+1520594404612,C1,Right,3c:08:f6:ff:a3:2c,TU Delft Open Dagen, -71
+1520594404612,C1,Right,3c:08:f6:ff:a3:2d,tudelft-dastud, -72
+1520594404612,C1,Right,3c:08:f6:ff:a3:23,TU Delft Open Dagen, -73
+1520594404612,C1,Right,5c:50:15:d1:f1:0c,TU Delft Open Dagen, -89
+1520594404612,C1,Right,3c:08:f6:fb:31:df,eduroam, -77
+1520594404612,C1,Right,3c:08:f6:e6:f1:2d,tudelft-dastud, -87
+1520594404612,C1,Right,3c:08:f6:e6:ef:20,eduroam, -70
+1520594404612,C1,Right,3c:08:f6:e6:ef:25,VSV Symposium Challenge, -70
+1520594404612,C1,Right,3c:08:f6:fb:31:d5,VSV Symposium Challenge, -72
+1520594404612,C1,Right,3c:08:f6:e6:ef:2c,TU Delft Open Dagen, -73
+1520594404612,C1,Right,3c:08:f6:ff:a3:2e,TUvisitor, -72
+1520594404612,C1,Right,3c:08:f6:ff:a3:2f,eduroam, -69
+1520594404612,C1,Right,3c:08:f6:e6:ef:2d,tudelft-dastud, -72
+1520594404612,C1,Right,3c:08:f6:fb:43:9e,TUvisitor, -84
+1520594404612,C1,Right,3c:08:f6:e6:ef:24,Event Aula, -71
+1520594404612,C1,Right,36:f6:4b:dd:1c:3d,DIRECT-NiBHAVYAJAINms4Y, -39
+1520594404612,C1,Right,3c:08:f6:e6:f1:2c,TU Delft Open Dagen, -87
+1520594404612,C1,Right,3c:08:f6:fb:31:d2,tudelft-dastud, -72
+1520594404612,C1,Right,3c:08:f6:fb:31:dd,tudelft-dastud, -77
+1520594404612,C1,Right,5c:50:15:d1:f1:0e,TUvisitor, -88
+1520594404612,C1,Right,3c:08:f6:fb:31:de,TUvisitor, -76
+1520594404612,C1,Right,3c:08:f6:e6:ef:22,tudelft-dastud, -71
+1520594404612,C1,Right,3c:08:f6:fb:31:d3,TU Delft Open Dagen, -72

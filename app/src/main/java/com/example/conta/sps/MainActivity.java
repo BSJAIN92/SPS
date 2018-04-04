@@ -444,7 +444,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 CellDataMain.put(timest, Strength);
 
 
-                if(++counter > 9) {
+                if(++counter > 19) {
                     MainActivity.this.saveVectors(CellDataMain);
                     cancel();
                     feedback.setText("Recording Complete. Please move to next Cell or Direction");
